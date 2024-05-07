@@ -1,0 +1,1 @@
+# ruby_intern_2024_foods_and_drinks

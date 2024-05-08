@@ -1,0 +1,20 @@
+vi:
+  users:
+    header:
+      name: "Foody"
+      home: "Trang chủ"
+      about: "Giới thiệu"
+      menu: "Thực đơn"
+      category: "Danh mục"
+      contact: "Liên hệ"
+      login: "Đăng nhập"
+    footer:
+      address:
+        title: "Địa chỉ"
+        street: "Đường Phạm Hùng"
+        city: "Thủ đô Hà Nội, Việt Nam"
+      opening_hours:
+        title: "Giờ mở cửa"
+        content: "9:00 AM - 10:30 PM"
+      follow_us:
+        title: "Theo dõi chúng tôi"

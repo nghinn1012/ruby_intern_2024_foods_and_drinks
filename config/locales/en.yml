@@ -30,4 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  users:
+    header:
+      name: "Foody"
+      home: "Home"
+      about: "About"
+      menu: "Menu"
+      category: "Category"
+      contact: "Contact"
+      login: "Login"
+      search: "Search..."
+    footer:
+      address:
+        title: "Address"
+        street: "Pham Hung Street"
+        city: "Hanoi Capital Region, Vietnam"
+      opening_hours:
+        title: "Opening hours"
+        content: "9:00 AM - 10:30 PM"
+      follow_us:
+        title: "Follow us"

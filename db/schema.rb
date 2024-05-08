@@ -58,9 +58,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_08_064715) do
     t.string "note"
     t.string "address"
     t.string "phone"
-    t.integer "status"
+    t.integer "status", default: 1
     t.integer "amount"
-    t.integer "payment_method"
+    t.integer "payment_method", default: 0
+    t.datetime "delete_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -73,8 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_08_064715) do
     t.boolean "is_actived", default: false
     t.string "phone"
     t.string "address"
-    t.integer "role"
-    t.string "password_digest", null: false
+    t.integer "role", default: 1
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: nil
     t.datetime "remember_created_at", precision: nil

@@ -182,7 +182,7 @@ section {
   }
 
   .navbar .dropdown ul li {
-    min-width: 200px;
+    min-width: 120px;
   }
 
   .navbar .dropdown ul a {
@@ -194,6 +194,19 @@ section {
 
   .navbar .dropdown ul a i {
     font-size: 12px;
+  }
+
+  .navbar .dropdown ul li button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $bg-color;
+    color: $color-primary;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
   }
 
   .navbar .dropdown ul a:hover,

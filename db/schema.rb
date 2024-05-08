@@ -73,15 +73,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_08_064715) do
     t.string "email", null: false
     t.boolean "is_actived", default: false
     t.string "phone"
+    t.string "password_digest"
     t.string "address"
     t.integer "role", default: 1
-    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at", precision: nil
     t.datetime "remember_created_at", precision: nil
     t.string "confirm_token"
     t.datetime "confirm_at", precision: nil
     t.datetime "confirm_sent_at", precision: nil
+    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

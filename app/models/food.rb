@@ -1,4 +1,6 @@
 class Food < ApplicationRecord
+  ADMIN_FOODS = %i(name description price discount available_item
+  category_id).freeze
   belongs_to :category
   has_one_attached :image
   scope :search, lambda {|term|

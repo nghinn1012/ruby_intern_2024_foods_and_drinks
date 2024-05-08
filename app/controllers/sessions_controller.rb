@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     reset_session
     remember_me @user
     log_in @user
-    redirect_to root_path
+    redirect_to is_admin? ? admin_foods_path : root_path
   end
 
   def destroy
@@ -32,5 +32,9 @@ class SessionsController < ApplicationController
 
     flash.now[:danger] = t("login.errors.invalid_combination")
     render :new, status: :unprocessable_entity
+  end
+
+  def is_admin?
+    current_user.role.to_sym == :admin
   end
 end

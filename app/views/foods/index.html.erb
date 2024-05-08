@@ -6,7 +6,28 @@
     </div>
     <div class="col-lg-9">
       <section>
-        <h4 class="mt-1 mb-3 text-center"><strong><%= t("foods.menu") %></strong></h4>
+        <div class="row">
+          <div class="col-lg-10">
+            <h4 class="mt-1 mb-3 text-center"><strong><%= t("foods.menu") %></strong></h4>
+          </div>
+          <div class="col-lg-2">
+            <form action="" method="get">
+              <nav id="navbar" class="navbar">
+                <ul>
+                  <li class="dropdown">
+                    <a href="#"><span><%= t("sort.title") %></span>
+                    <i class="bi bi-chevron-down dropdown-indicator"></i>
+                    </a>
+                    <ul>
+                      <li><button type="submit" name="sort" value="asc"><%= t("sort.asc") %></button></li>
+                      <li><button type="submit" name="sort" value="desc"><%= t("sort.desc") %></button></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </form>
+          </div>
+        </div>
          <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
           <%= render @foods %>
         </div>

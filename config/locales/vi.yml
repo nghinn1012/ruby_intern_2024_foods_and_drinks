@@ -48,3 +48,7 @@ vi:
       max_price: "Giá tối đa"
       min_price: "Giá tối thiểu"
     menu: "Thực đơn"
+  sort:
+    title: "Sắp xếp theo tên"
+    asc: "A - Z"
+    desc: "Z - A"

@@ -5,37 +5,36 @@
     </header>
     <div class="filter-content">
       <div class="card-body">
-        <form class="search-form">
-          <input type="text" placeholder="<%= t("users.header.search") %>">
-          <button type="submit"><i class="bi bi-search"></i></button>
-        </form>
-      </div>
-    </div>
-  </article>
-  <article class="card-group-item">
-    <header class="card-header">
-      <h6 class="title"><%= t("foods.sidebar.category") %></h6>
-    </header>
-    <div class="filter-content">
-      <div class="card-body">
-        <%= form_tag(foods_path, method: :get) do %>
-          <% @categories.each do |category| %>
-            <div class="form-check">
-              <%= check_box_tag "category_ids[]", category.id, params[:category_ids].present? && params[:category_ids].include?(category.id.to_s), class: "form-check-input", id: "category_#{category.id}" %>
-              <%= label_tag "category_#{category.id}", category.name, class: "form-check-label" %>
+        <%= form_tag foods_path, method: 'get', class: 'form-inline' do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search' %>
+            <div class="input-group-append mx-2">
+              <%= submit_tag t("users.header.search"), class: 'btn btn-outline-primary bi bi-search' do %>
+              <% end %>
             </div>
-          <% end %>
-          <%= submit_tag t("foods.sidebar.filter"), class: "btn btn-primary mt-3 justify-content-center" %>
+          </div>
         <% end %>
       </div>
     </div>
   </article>
-  <article class="card-group-item">
-    <header class="card-header">
-      <h6 class="title"><%= t("foods.sidebar.price") %></h6>
-    </header>
-    <div class="filter-content">
-      <div class="card-body">
+
+ <article class="card-group-item">
+  <header class="card-header">
+    <h6 class="title"><%= t("foods.sidebar.filter") %></h6>
+  </header>
+  <div class="filter-content">
+    <div class="card-body">
+      <%= form_tag(foods_path, method: :get) do %>
+        <!-- Category Filter -->
+        <h6 class="title"><%= t("foods.sidebar.category") %></h6>
+        <% @categories.each do |category| %>
+          <div class="form-check">
+            <%= check_box_tag "category_ids[]", category.id, params[:category_ids].present? && params[:category_ids].include?(category.id.to_s), class: "form-check-input" %>
+            <%= label_tag "category_#{category.id}", category.name, class: "form-check-label" %>
+          </div>
+        <% end %>
+
+        <h6 class="title mt-3"><%= t("foods.sidebar.price") %></h6>
         <div class="form-group">
           <div class="row">
             <div class="col">
@@ -48,7 +47,10 @@
             </div>
           </div>
         </div>
-      </div>
+        <!-- Submit Button -->
+        <%= submit_tag t("foods.sidebar.filter"), class: "btn btn-primary mt-3 justify-content-center" %>
+      <% end %>
     </div>
-  </article>
+  </div>
+</article>
 </div>

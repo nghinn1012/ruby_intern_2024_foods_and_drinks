@@ -79,3 +79,7 @@ en:
       max_price: "Max price"
       min_price: "Min price"
     menu: "Menu"
+  sort:
+    title: "Sort by name"
+    asc: "A - Z"
+    desc: "Z - A"

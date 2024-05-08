@@ -8,10 +8,11 @@ gem "bcrypt"
 gem "bootstrap-sass"
 gem "config"
 gem "image_processing", "1.12.2"
+gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "pagy"
 gem "rails", "~> 7.0.5"
 gem "sass-rails", ">= 5"
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "figaro"
 gem "sprockets-rails"

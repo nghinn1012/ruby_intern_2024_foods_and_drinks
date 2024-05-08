@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-between align-items-center mb-5">
     <div class="col-auto">
-      <h1><%= t("admin.foods.new.title") %></h1>
+      <h1><%= t("admin.foods.update.title") %></h1>
     </div>
     <div class="col-auto">
       <%= link_to t("admin.foods.back"), admin_foods_path, class: "btn btn-secondary" %>
@@ -9,7 +9,7 @@
   </div>
   <div class="row mx-5 my-5">
     <div class="col">
-      <%= render partial: "admin/shared/food_form" %>
+      <%= render "admin/shared/food_edit" %>
     </div>
   </div>
 </div>

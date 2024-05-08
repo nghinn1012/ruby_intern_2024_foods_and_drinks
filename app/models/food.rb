@@ -1,8 +1,9 @@
 class Food < ApplicationRecord
-  ADMIN_FOODS = %i(name description price discount available_item
-  category_id).freeze
+  ADMIN_FOODS = %i(name description price available_item
+  category_id image).freeze
+  acts_as_paranoid
   belongs_to :category
-  has_one_attached :image
+  has_one_attached :image, dependent: :nullify
   scope :search, lambda {|term|
     return if term.blank?
 

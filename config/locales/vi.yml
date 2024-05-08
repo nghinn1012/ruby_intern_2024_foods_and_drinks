@@ -96,6 +96,19 @@ vi:
         title: "Món mới"
         back: "Quay lại"
         submit: "Gửi"
+      create:
+        success: "Tạo món ăn thành công."
+        fail: "Tạo món ăn thất bại."
+      update:
+        title: "Cập nhật"
+        success: "Cập nhật món ăn thành công."
+        fail: "Cập nhật món ăn thất bại."
+      delete:
+        title: "Xóa"
+        success: "Xóa món ăn thành công."
+        fail: "Xóa món ăn thất bại."
+      errors:
+        food_not_found: "Không tìm thấy món ăn."
     search: "Tìm kiếm"
     shared:
       food_form:

@@ -1,0 +1,54 @@
+<div class="card card-side-bar">
+  <article class="card-group-item">
+    <header class="card-header">
+      <h6 class="title"><%= t("foods.sidebar.search") %></h6>
+    </header>
+    <div class="filter-content">
+      <div class="card-body">
+        <form class="search-form">
+          <input type="text" placeholder="<%= t("users.header.search") %>">
+          <button type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </article>
+  <article class="card-group-item">
+    <header class="card-header">
+      <h6 class="title"><%= t("foods.sidebar.category") %></h6>
+    </header>
+    <div class="filter-content">
+      <div class="card-body">
+        <%= form_tag(foods_path, method: :get) do %>
+          <% @categories.each do |category| %>
+            <div class="form-check">
+              <%= check_box_tag "category_ids[]", category.id, params[:category_ids].present? && params[:category_ids].include?(category.id.to_s), class: "form-check-input", id: "category_#{category.id}" %>
+              <%= label_tag "category_#{category.id}", category.name, class: "form-check-label" %>
+            </div>
+          <% end %>
+          <%= submit_tag t("foods.sidebar.filter"), class: "btn btn-primary mt-3 justify-content-center" %>
+        <% end %>
+      </div>
+    </div>
+  </article>
+  <article class="card-group-item">
+    <header class="card-header">
+      <h6 class="title"><%= t("foods.sidebar.price") %></h6>
+    </header>
+    <div class="filter-content">
+      <div class="card-body">
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <%= label_tag "min_price", t("foods.sidebar.min_price") %>
+              <%= number_field_tag "min_price", params[:min_price], class: "form-control", placeholder: t("foods.sidebar.min_price") %>
+            </div>
+            <div class="col">
+              <%= label_tag "max_price", t("foods.sidebar.max_price") %>
+              <%= number_field_tag "max_price", params[:max_price], class: "form-control", placeholder: t("foods.sidebar.max_price") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

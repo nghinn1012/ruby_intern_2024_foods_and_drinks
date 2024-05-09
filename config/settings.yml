@@ -1,0 +1,32 @@
+validates:
+  users:
+    name:
+      max_length: 15
+    email:
+      format: \A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z
+      max_length: 250
+    password:
+      min_length: 6
+  foods:
+    name:
+      max_length: 100
+    description:
+      max_length: 1000
+    price:
+      min: 0
+      max: 10000000
+    note:
+      max_length: 100
+  categories:
+    name:
+      max_length: 50
+    path:
+      max_length: 100
+  order_items:
+    quantity:
+      max: 5000
+  notifications:
+    title:
+      max_length: 100
+    content:
+      max_length: 1000

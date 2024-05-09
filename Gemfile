@@ -7,6 +7,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.0.5"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "figaro"
 gem "sprockets-rails"
 
 # Use mysql as the database for Active Record
@@ -51,10 +52,10 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html
   gem "debug", platforms: %i(mri mingw x64_mingw)
+  gem "rspec-rails", "~> 4.0.1"
   gem "rubocop", "~> 1.26", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.14.0", require: false
-  gem "rspec-rails", "~> 4.0.1" 
 end
 
 group :development do

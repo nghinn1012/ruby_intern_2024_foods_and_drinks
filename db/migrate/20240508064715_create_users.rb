@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.boolean :is_actived, default: false
       t.string :phone
       t.string :address
-      t.integer :role
+      t.integer :role, default: 1
       t.string :password_digest, null: false
       t.string :reset_password_token
       t.datetime :reset_password_sent_at
@@ -52,9 +52,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :note
       t.string :address
       t.string :phone
-      t.integer :status
+      t.integer :status, default: 1
       t.integer :amount
-      t.integer :payment_method
+      t.integer :payment_method, default: 0
       t.datetime :delete_at
 
       t.timestamps

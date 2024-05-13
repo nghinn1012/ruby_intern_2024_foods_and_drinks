@@ -1,9 +1,10 @@
+name: "Foody"
 validates:
   users:
     name:
       max_length: 15
     email:
-      format: \A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z
+      format: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
       max_length: 250
     password:
       min_length: 6

@@ -39,6 +39,7 @@ en:
       category: "Category"
       contact: "Contact"
       login: "Login"
+      search: "Search..."
     footer:
       address:
         title: "Address"

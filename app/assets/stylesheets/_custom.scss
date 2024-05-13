@@ -42,6 +42,31 @@
   color: $color-primary;
 }
 
+.search-form {
+  position: relative;
+  margin-right: 15px;
+}
+.search-form input[type="text"] {
+  width: 200px;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+.search-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.search-form button i {
+  font-size: 1.2rem;
+}
+
 .header .btn-book-a-table,
 .header .btn-book-a-table:focus {
   color: #fff;
@@ -97,7 +122,7 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 0 3px;
-    font-family: $font-secondary;
+    font-family: $font-default;
     font-size: 16px;
     font-weight: 600;
     color: #7f7f90;
@@ -225,7 +250,7 @@ section {
 }
 
 .footer .container {
-  margin-left: 70px;
+  margin-left: 15%;
 }
 
 .footer .icon {

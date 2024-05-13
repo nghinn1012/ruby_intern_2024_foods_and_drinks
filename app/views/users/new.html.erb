@@ -1,0 +1,41 @@
+<% provide :title, t(".title") %>
+
+<section class="signup_section layout_padding pt-3">
+  <h2 class="text-center mb-3"> <%= t ".title" %> </h2>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form_container">
+          <%= form_with model: @user do |f| %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.label :first_name, t(".first_name") %>
+                <%= f.text_field :first_name, class: "form-control" %>
+                <p class="error"><%= show_errors @user, :first_name %></p>
+              </div>
+              <div class="col-md-6" >
+                <%= f.label :last_name, t(".last_name") %>
+                <%= f.text_field :last_name, class: "form-control" %>
+                <p class="error"><%= show_errors @user, :last_name %></p>
+              </div>
+            </div>
+
+            <%= f.label :email, t(".email") %>
+            <%= f.text_field :email, class: "form-control" %>
+            <p class="error"><%= show_errors @user, :email %></p>
+
+            <%= f.label :password, t(".password") %>
+            <%= f.password_field :password, class: "form-control" %>
+            <p class="error"><%= show_errors @user, :password %></p>
+
+            <%= f.label :password_confirmation, t(".password_confirmation") %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+            <p class="error"><%= show_errors @user, :password_confirmation %></p>
+
+            <%= f.submit t(".submit"), class: "btn_box" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

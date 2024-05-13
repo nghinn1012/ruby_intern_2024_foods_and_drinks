@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :notifications, dependent: :destroy
-  enum role: {admin: 0, user: 1}
+  enum role: {admin: 0, user: 1}, _suffix: true
   validates :first_name, presence: true,
     length: {maximum: Settings.validates.users.name.max_length}
   validates :last_name, presence: true,

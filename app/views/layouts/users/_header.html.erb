@@ -1,0 +1,29 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+      <h1><%= t "users.header.name" %><span></span></h1>
+    </a>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><%= link_to t("users.header.home"), "/" %></li>
+        <li><%= link_to t("users.header.about"), "#" %></li>
+        <li class="dropdown"><a href="#"><span><%= t "users.header.category" %></span>
+            <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="#"><%= t "users.header.category"  %> </a></li>
+          </ul>
+        </li>
+        <li><%= link_to t("users.header.menu"), "#" %></li>
+        <li><%= link_to t("users.header.contact"), "#" %></li>
+      </ul>
+    </nav>
+    <div class="d-flex align-items-center">
+      <form class="search-form">
+        <input type="text" placeholder= <%= t("users.header.search") %>>
+        <button type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <div class="btn btn-book-a-table"><i class="bi bi-cart3"></i></div>
+      <%= link_to t("users.header.login"), "#", class: "login" %>
+    </div>
+  </div>
+</header>

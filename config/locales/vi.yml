@@ -19,3 +19,22 @@ vi:
         content: "9:00 AM - 10:30 PM"
       follow_us:
         title: "Theo dõi chúng tôi"
+  login:
+    title: "Đăng nhập"
+    email: "Email"
+    password: "Mật khẩu"
+    remember: "Nhớ đăng nhập"
+    dont_have_account: "Bạn chưa có tài khoản?"
+    register: "Đăng ký ngay"
+    errors:
+      user_not_found: "Không tìm thấy nguời dùng!"
+      invalid_combination: "Sai mật khẩu!"
+  sign_up:
+    title: "Đăng ký"
+    first_name: "Tên"
+    last_name: "Họ"
+    email: "Email"
+    password: "Mật khẩu"
+    password_confirmation: "Xác nhận mật khẩu"
+    submit: "Gửi"
+    success: "Đăng ký thành công"

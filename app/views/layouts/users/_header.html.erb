@@ -22,8 +22,23 @@
         <input type="text" placeholder= <%= t("users.header.search") %>>
         <button type="submit"><i class="bi bi-search"></i></button>
       </form>
+    <% if logged_in? %>
       <div class="btn btn-book-a-table"><i class="bi bi-cart3"></i></div>
-      <%= link_to t("users.header.login"), "#", class: "login" %>
+      <nav id="navbar" class="navbar">
+          <ul>
+        <li class="dropdown">
+          <li class="dropdown"><a href="#"><span><%= current_user.full_name %></span>
+                <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <ul>
+                <li><%= button_to t("user.header.logout"), logout_path , method: :delete %></li>
+              </ul>
+            </li>
+        </li>
+      </ul>
+    </nav>
+    <% else %>
+      <%= link_to t("users.header.login"), login_path, class: "login" %>
+    <% end %>
     </div>
   </div>
 </header>

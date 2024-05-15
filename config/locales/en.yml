@@ -50,3 +50,22 @@ en:
         content: "9:00 AM - 10:30 PM"
       follow_us:
         title: "Follow us"
+  login:
+    title: "Login"
+    email: "Email"
+    password: "Password"
+    remember: "Remember me"
+    dont_have_account: "Don't have an account?"
+    register: "Register now"
+    errors:
+      user_not_found: "User not found!"
+      invalid_combination: "Wrong password!"
+  sign_up:
+    title: "Sign up"
+    first_name: "First name"
+    last_name: "Last name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Confirmation password"
+    submit: "Submit"
+    success: "Sign up successfully"

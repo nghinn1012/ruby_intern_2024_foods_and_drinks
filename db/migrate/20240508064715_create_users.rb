@@ -6,15 +6,16 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email, null: false
       t.boolean :is_actived, default: false
       t.string :phone
+      t.string :password_digest
       t.string :address
       t.integer :role, default: 1
-      t.string :encrypted_password, default: "", null: false
       t.string :reset_password_token
       t.datetime :reset_password_sent_at
       t.datetime :remember_created_at
       t.string :confirm_token
       t.datetime :confirm_at
       t.datetime :confirm_sent_at
+      t.string :remember_digest
 
       t.timestamps
     end

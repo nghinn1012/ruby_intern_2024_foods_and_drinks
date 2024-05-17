@@ -61,3 +61,4 @@ log/development.log
 /public/fonts/*
 \!/public/fonts/.keep
 /node_modules
+/storage

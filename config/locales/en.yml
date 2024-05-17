@@ -69,3 +69,13 @@ en:
     password_confirmation: "Confirmation password"
     submit: "Submit"
     success: "Sign up successfully"
+  foods:
+    add_to_cart: "Add to cart"
+    sidebar:
+      filter: "Filter"
+      search: "Search"
+      category: "Category"
+      price: "Price"
+      max_price: "Max price"
+      min_price: "Min price"
+    menu: "Menu"

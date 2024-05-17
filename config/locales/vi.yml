@@ -38,3 +38,13 @@ vi:
     password_confirmation: "Xác nhận mật khẩu"
     submit: "Gửi"
     success: "Đăng ký thành công"
+  foods:
+    add_to_cart: "Thêm vào giỏ hàng"
+    sidebar:
+      filter: "Lọc"
+      search: "Tìm kiếm"
+      category: "Danh mục"
+      price: "Giá"
+      max_price: "Giá tối đa"
+      min_price: "Giá tối thiểu"
+    menu: "Thực đơn"

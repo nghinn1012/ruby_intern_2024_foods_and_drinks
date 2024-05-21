@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
     delete "cart_destroy/:id", to: "cart#destroy", as: "cart_destroy"
     delete "cart_destroy_all", to: "cart#destroy_all"
+    get "order_history", to: "orders#index"
+    get "checkout", to:"orders#new"
+    post "checkout", to:"orders#create"
+    resources :orders
     resources :cart do
       member do
         post :update_quantity, action: :update_quantity

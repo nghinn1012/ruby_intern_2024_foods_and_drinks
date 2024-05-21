@@ -12,6 +12,7 @@
 /tmp/
 /log/development.log
 /spec/
+/public/assets
 # Used by dotenv library to load environment variables.
 # .env
 

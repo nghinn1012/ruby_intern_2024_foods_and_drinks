@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <h1><%= t("orders.order_details") %></h1>
+    </div>
+    <div class="card-body">
+      <div class="order-info mb-4 row">
+        <div class="col-md-6">
+          <p><strong><%= t("orders.order_id") %>:</strong> <%= @order.id %></p>
+          <p><strong><%= t("orders.order_date") %>:</strong> <%= @order.created_at.strftime("%B %e, %Y %H:%M %p") %></p>
+          <p><strong><%= t("orders.order_status") %>:</strong> <%= @order.status %></p>
+          <p><strong><%= t("orders.total_price") %>:</strong> $<%= @order.amount %></p>
+        </div>
+        <div class="col-md-6">
+          <p><strong><%= t("orders.order_address") %>:</strong> <%= @order.address %></p>
+          <p><strong><%= t("orders.order_phone") %>:</strong> <%= @order.phone %></p>
+          <p><strong><%= t("orders.order_note") %>:</strong> <%= @order.note %></p>
+          <p><strong><%= t("orders.payment_method") %>:</strong> <%= @order.payment_method %></p>
+        </div>
+      </div>
+      <h2 class="h4 mb-3"><%= t("orders.ordered_items") %></h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th><%= t("orders.image") %></th>
+              <th><%= t("orders.product") %></th>
+              <th><%= t("orders.price") %></th>
+              <th><%= t("orders.quantity") %></th>
+              <th><%= t("orders.total_price") %></th>
+              <th><%= t("orders.status") %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: 'order_item', collection: @order_items %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -46,7 +46,8 @@
             <li class="dropdown"><a href="#"><span><%= current_user.full_name %></span>
                   <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                 <ul>
-                  <li><%= button_to t("user.header.logout"), logout_path , method: :delete %></li>
+                  <li><%= link_to t("users.header.order"), order_history_path %></li>
+                  <li><%= button_to t("users.header.logout"), logout_path , method: :delete %></li>
                 </ul>
               </li>
           </li>

@@ -1,7 +1,7 @@
 @import 'common';
 @import 'variables';
 @import 'color';
-
+@import 'toastr';
 .container {
   width: 100%;
 }
@@ -620,4 +620,201 @@ section {
   background-color: $color-secondary;
   border-color: $black;
   color: $black;
+}
+
+h5 {
+  color: gray;
+}
+
+.delivery-info, .payment {
+  padding: 15px;
+  border: 1px solid silver;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+}
+
+.delivery-info i, .payment i {
+  font-size: 1.5rem;
+  color: $color-default;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group i {
+  margin-right: 10px;
+}
+
+.form-control {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.error {
+  color: $color-primary;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+.payment-method .form-group {
+  margin-bottom: 15px;
+}
+
+.payment-box {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.payment-box .method-name {
+  font-size: 1rem;
+  color: gray;
+}
+
+.btn-submit {
+  background-color: $color-default;
+  color: white;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: $color-default;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: 20px 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+
+.sidebar {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  padding-right: 30px;
+}
+
+.custom-select:focus {
+  border-color: $color-default;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-group-text {
+  background-color: white;
+  border: 1px solid whitesmoke;
+}
+
+.payment-label {
+  margin-right: 10px;
+}
+
+.payment-input {
+  margin-right: 5px;
+}
+
+.osahan-user-media img {
+  width: 90px;
+}
+.card offer-card h5.card-title {
+  border: 2px dotted black;
+}
+.card.offer-card h5 {
+  border: 1px dotted wheat;
+  display: inline-table;
+  color: $color-default;
+  margin: 0 0 19px 0;
+  font-size: 15px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 2px;
+  background: white;
+  position: relative;
+}
+.card.offer-card h5 img {
+  height: 22px;
+  object-fit: cover;
+  width: 22px;
+  margin: 0 8px 0 0;
+  border-radius: 2px;
+}
+.card.offer-card h5:after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid whitesmoke;
+  content: "";
+  left: 30px;
+  position: absolute;
+  bottom: 0;
+}
+.card.offer-card h5:before {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid whitesmoke;
+  content: "";
+  left: 30px;
+  position: absolute;
+  top: 0;
+}
+.payments-item .media {
+  align-items: center;
+}
+.payments-item .media img {
+  margin: 0 40px 0 11px !important;
+}
+.reviews-members .media .mr-3 {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+}
+.order-list img.mr-4 {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075)!important;
+  border-radius: 2px;
+}
+.osahan-cart-item p.text-gray.float-right {
+  margin: 3px 0 0 0;
+  font-size: 12px;
+}
+.osahan-cart-item .food-item {
+  vertical-align: bottom;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+.shadow-sm {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.rounded-pill {
+  border-radius: 50rem!important;
+}
+a:hover{
+  text-decoration:none;
 }

@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :load_category, only: %i(show)
   def show
-    @foods_of_category = Food.find_by(category_id: params[:id].to_i)
+    @foods_of_category = Food.all_of_category(@category.id)
     return if @foods_of_category
 
     flash[:error] = t("flash_messages.no_food")

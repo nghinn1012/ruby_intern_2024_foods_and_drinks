@@ -2,7 +2,7 @@
   <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong><%= @category.name %></strong></h4>
     <div class="row mb-5">
-      <%= render @foods_of_category %>
+      <%= render partial: "foods/food", collection: Food.all_of_category(@category.id)  %>
     </div>
   </div>
 </section>

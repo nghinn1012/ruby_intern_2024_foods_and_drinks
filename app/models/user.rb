@@ -4,7 +4,7 @@ class User < ApplicationRecord
   ATTRIBUTES = %i(name email password password_confirmation
   date_of_birth gender).freeze
   has_many :orders, dependent: :destroy
-  has_many :notifications, dependent: :destroy
+  has_many :notifications, foreign_key: "receiver_id", dependent: :destroy
   enum role: {admin: 0, user: 1}, _suffix: true
   validates :first_name, presence: true,
     length: {maximum: Settings.validates.users.name.max_length}

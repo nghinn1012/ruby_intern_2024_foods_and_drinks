@@ -33,6 +33,9 @@ class Food < ApplicationRecord
     joins(:category).where(categories: {id: category_ids}).distinct
   }
   scope :find_ids, ->(ids){where id: ids}
+  scope :items_of_order, lambda {|order_items|
+    where(id: order_items.pluck(:food_id))
+  }
   validates :name, presence: true,
     length: {maximum: Settings.validates.foods.name.max_length}
   validates :description, presence: true,

@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   include OrdersHelper
+  include FoodsHelper
   before_action :find_order, only: %i(show destroy)
   def new
     @order = current_user.orders.build
     check_cart_create
-    @total_price = calculate_total_price(@cart_items)
+    @total_price = subtotal_cart_value(@cart_items)
   end
 
   def create
@@ -13,6 +14,7 @@ class OrdersController < ApplicationController
       @order.amount = calculate_total_price(@cart_items)
       if @order.save
         save_order
+        noti_create_order
         redirect_to root_path
       else
         render :new, status: :unprocessable_entity
@@ -37,6 +39,7 @@ class OrdersController < ApplicationController
     if @order.status.to_sym != :pending
       flash[:danger] = t("orders.flashes.delete_fail")
     elsif @order.destroy
+      noti_cancel_order
       flash[:info] = t("orders.flashes.delete_success")
     else
       flash[:danger] = t("orders.flashes.delete_fail")
@@ -92,5 +95,25 @@ class OrdersController < ApplicationController
       item["food_avaiable_item"] = new_quantity
       food.update(available_item: new_quantity)
     end
+  end
+
+  def noti_create_order
+    Notification.create(
+      receiver_id: @order.user_id,
+      title: t("notifications.order_created.title"),
+      content: t("notifications.order_created.content", order_id: @order.id,
+      status: @order.status),
+      read: false
+    )
+  end
+
+  def noti_cancel_order
+    Notification.create(
+      receiver_id: @order.user_id,
+      title: t("notifications.order_canceled.title"),
+      content: t("notifications.order_canceled.content", order_id: @order.id,
+      status: @order.status),
+      read: false
+    )
   end
 end

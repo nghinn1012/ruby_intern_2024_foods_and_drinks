@@ -31,7 +31,7 @@
 
 en:
   language:
-    title: "Select language"
+    title: "Language"
     eng: "English"
     vi: "Vietnamese"
   users:
@@ -179,10 +179,13 @@ en:
     summary: "Summary"
     checkout: "Checkout"
   orders:
+    filter_by_status: "Filter by status"
     flashes:
       create_success: "Order was successfully created."
       delete_success: "Order was successfully deleted."
       no_order: "Not found order!"
+      status_updated: "Order was updated successfully"
+      status_update_failed: "Status update failed"
     index:
       title: "Order List"
       header: "Your Orders"
@@ -203,6 +206,7 @@ en:
     orders_history: "Orders History"
     order_id: "Order ID"
     date_created: "Date Created"
+    customer_name: "Customer Name"
     address: "Address"
     phone_number: "Phone Number"
     status: "Status"
@@ -227,3 +231,24 @@ en:
     deleted: "Deleted"
     active: "Active"
     payment_method: "Payment Method"
+  notifications:
+    header: "Notifications"
+    mark_as_read: "Mark as read"
+    mark_as_read_all: "Mark all as read"
+    no_noti: "No notifications"
+    show_all: "Show all notifications"
+    success:
+      read: "Notification marked as read"
+      read_all: "Read all notifications"
+    danger:
+      error: "An error occurred"
+      not_found: "Notification not found"
+    order_updated:
+      title: "Order information updated"
+      content: "Order %{order_id} has been updated. Current status: %{status}."
+    order_created:
+      title: "Order created"
+      content: "Order %{order_id} has been created. Current status: %{status}."
+    order_canceled:
+      title: "Order canceled"
+      content: "Order %{order_id} has been cancel. Current status: %{status}."

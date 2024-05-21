@@ -1,0 +1,11 @@
+<section class="section-50">
+  <div class="container">
+    <h1 class="text-center">
+      <%= t('notifications.header') %>
+      <div class="notification-list_feature-img float-end">
+        <%= link_to t('notifications.mark_as_read_all'), mark_as_read_all_path, data: {turbo_method: :post}, class: 'btn btn-primary' %>
+      </div>
+    </h1>
+    <%= render @notifications %>
+  </div>
+</section>

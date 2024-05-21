@@ -127,6 +127,9 @@ class CartController < ApplicationController
   def update_avaiable_item
     turbo_stream.update("avaiable_item_#{@cart_item['food_id']}",
                         @cart_item["food_avaiable_item"])
+  end
+
+  def update_avaiable_cart
     turbo_stream.update("item_avaiable_#{@cart_item['food_id']}",
                         @cart_item["food_avaiable_item"])
   end
@@ -157,6 +160,7 @@ class CartController < ApplicationController
           update_total_item,
           update_total_item_value,
           update_total_cart_value,
+          update_avaiable_cart,
           update_avaiable_item,
           flash_add_sucess
         ]
@@ -183,6 +187,7 @@ class CartController < ApplicationController
         render turbo_stream: [
           update_total_item,
           update_avaiable_item,
+          update_avaiable_cart,
           flash_add_sucess
         ]
       end

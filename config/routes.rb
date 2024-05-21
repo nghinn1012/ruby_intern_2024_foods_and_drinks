@@ -15,17 +15,27 @@ Rails.application.routes.draw do
     get "order_history", to: "orders#index"
     get "checkout", to:"orders#new"
     post "checkout", to:"orders#create"
+    post "user_notifications/mark_as_read_all", to: "notifications#mark_as_read_all", as: "mark_as_read_all"
     resources :orders
     resources :cart do
       member do
         post :update_quantity, action: :update_quantity
       end
     end
-    resources :users, only: %i(create)
+    resources :users do
+      resources :notifications do
+        patch "mark_as_read", to:"notifications#mark_as_read"
+      end
+    end
     resources :categories
     resources :foods, only: %i(create index show update)
     namespace :admin do
       resources :foods
+      resources :orders do
+        member do
+          patch :update_status
+        end
+      end
     end
   end
 end

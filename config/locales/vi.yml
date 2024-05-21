@@ -1,6 +1,6 @@
 vi:
   language:
-    title: "Chọn ngôn ngữ"
+    title: "Ngôn ngữ"
     eng: "Tiếng Anh"
     vi: "Tiếng Việt"
   users:
@@ -42,7 +42,7 @@ vi:
     email: "Email"
     password: "Mật khẩu"
     password_confirmation: "Xác nhận mật khẩu"
-    submit: "Gửi"
+    submit: "Xác nhận"
     success: "Đăng ký thành công"
   foods:
     add_to_cart: "Thêm vào giỏ"
@@ -97,7 +97,7 @@ vi:
       new:
         title: "Món mới"
         back: "Quay lại"
-        submit: "Gửi"
+        submit: "Xác nhận"
       create:
         success: "Tạo món ăn thành công."
         fail: "Tạo món ăn thất bại."
@@ -148,10 +148,13 @@ vi:
     summary: "Tổng cộng"
     checkout: "Thanh toán"
   orders:
+    filter_by_status: "Lọc theo trạng thái"
     flashes:
       create_success: "Đơn hàng đã được tạo thành công."
       delete_success: "Đơn hàng đã được hủy thành công."
       no_order: "Không tìm thấy đơn hàng!"
+      status_updated: "Đơn hàng được cập nhật thành công"
+      status_update_failed: "Cập nhật trạng thái thất bại"
     index:
       title: "Danh sách đơn hàng"
       header: "Đơn hàng của bạn"
@@ -172,6 +175,7 @@ vi:
     orders_history: "Lịch sử đơn hàng"
     order_id: "Mã đơn hàng"
     date_created: "Ngày tạo"
+    customer_name: "Tên người nhận"
     address: "Địa chỉ"
     phone_number: "Số điện thoại"
     status: "Trạng thái"
@@ -195,3 +199,24 @@ vi:
     deleted: "Đã xóa"
     active: "Hoạt động"
     payment_method: "Phương thức thanh toán"
+  notifications:
+    header: "Thông báo"
+    mark_as_read: "Đánh dấu là đã đọc"
+    mark_as_read_all: "Đánh dấu tất cả là đã đọc"
+    no_noti: "Không có thông báo"
+    show_all: "Xem tất cả thông báo"
+    success:
+      read: "Đã đọc thông báo"
+      read_all: "Đã đọc tất cả thông báo"
+    danger:
+      error: "Đã có lỗi xảy ra"
+      not_found: "Không tìm thấy thông báo"
+    order_updated:
+      title: "Cập nhật thông tin đơn hàng"
+      content: "Đơn hàng %{order_id} đã được cập nhật. Trạng thái hiện tại: %{status}."
+    order_created:
+      title: "Đơn hàng mới"
+      content: "Đơn hàng %{order_id} đã được tạo. Trạng thái hiện tại: %{status}."
+    order_canceled:
+      title: "Đơn hàng bị hủy"
+      content: "Đơn hàng %{order_id} đã hủy bởi bạn. Trạng thái hiện tại: %{status}."

@@ -6,7 +6,12 @@ class Order < ApplicationRecord
   has_many :foods, through: :order_items
   enum status: {pending: 0, delivering: 1, completed: 2, canceled: 3}
   enum payment_method: {cash: 0, card: 1, paypal: 2}
+  scope :order_by_status, ->{order(status: :asc)}
+  scope :filter_by_status, lambda {|term|
+    return if term.blank?
 
+    where(status: statuses[term])
+  }
   validates :address, presence: true,
                       length: {maximum:
                       Settings.validates.orders.address.max_length}

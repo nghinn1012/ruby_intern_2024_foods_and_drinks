@@ -1,0 +1,8 @@
+<li class="notification-item">
+  <%= link_to(user_notification_mark_as_read_path(notification_id: notification.id, user_id: current_user.id), class: "dropdown-item", data: {turbo_method: :patch, confirm: t('notifications.confirm') }) do %>
+    <%= notification.content %>
+    <% unless notification.read %>
+      <span class="red-dot ms-1"></span>
+    <% end %>
+  <% end %>
+</li>

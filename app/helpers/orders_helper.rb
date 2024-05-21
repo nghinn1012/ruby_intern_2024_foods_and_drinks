@@ -11,4 +11,18 @@ module OrdersHelper
       "text-secondary"
     end
   end
+
+  def select_status order
+    all_statuses = Order.statuses.keys
+    case order.status
+    when "pending"
+      all_statuses
+    when "delivering"
+      %i(delivering completed canceled)
+    when "completed", "canceled"
+      [order.status]
+    else
+      []
+    end
+  end
 end

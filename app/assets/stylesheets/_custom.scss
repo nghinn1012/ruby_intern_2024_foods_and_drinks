@@ -4,7 +4,6 @@
 
 .container {
   width: 100%;
-  margin-right: 0;
 }
 .container.wrap {
   margin-top: 90px;
@@ -40,13 +39,13 @@
 .header .logo h1 {
   font-size: 28px;
   font-weight: 700;
-  color: $color-primary;
+  color: $black;
   margin: 0;
   font-family: $font-secondary;
 }
 
 .header .logo h1 span {
-  color: $color-primary;
+  color: $black;
 }
 
 .search-form {
@@ -373,7 +372,7 @@ section {
   font-size: 24px;
   font-weight: bold;
   margin-top: 10px;
-  color: $color-secondary;
+  color: $black;
 }
 
 .food-image-not-available {
@@ -401,9 +400,9 @@ section {
 
 .card h5 {
     overflow: hidden;
-    height: 40px;
+    height: 30px;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .card h5 a {
@@ -500,9 +499,9 @@ section {
 
 /* START BUTTON */
 .btn-warning {
-    background: var(--btnbg);
-    color: var(--btnfontcolor);
-    fill: $bg-color;
+    background: $color-secondary;
+    color: $black;
+    fill: $color-secondary;
     border: none;
     text-decoration: none;
     outline: 0;
@@ -510,7 +509,7 @@ section {
     border-radius: 100px;
 }
 .btn-warning:hover {
-    background: var(--btnbghover);
+    background: $color-secondary;
     color: var(--btnfontcolorhover);
     /* box-shadow: -1px 6px 13px rgba(255, 150, 43, 0.35); */
 }
@@ -555,4 +554,9 @@ section {
 
 .card-side-bar {
   margin-top: 50px;
+}
+
+.disabled {
+  opacity: 1; /* Thiết lập độ mờ */
+  cursor: not-allowed; /* Đặt con trỏ chuột thành không cho phép */
 }

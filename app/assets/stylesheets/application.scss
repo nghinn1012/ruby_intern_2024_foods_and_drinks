@@ -13,4 +13,6 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-icons/font/bootstrap-icons";
+@import '_custom.scss';
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons';
+@import "bootstrap-sprockets";

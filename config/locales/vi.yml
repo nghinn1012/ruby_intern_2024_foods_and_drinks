@@ -1,4 +1,8 @@
 vi:
+  language:
+    title: "Chọn ngôn ngữ"
+    eng: "Tiếng Anh"
+    vi: "Tiếng Việt"
   users:
     header:
       name: "Foody"
@@ -39,7 +43,8 @@ vi:
     submit: "Gửi"
     success: "Đăng ký thành công"
   foods:
-    add_to_cart: "Thêm vào giỏ hàng"
+    add_to_cart: "Thêm vào giỏ"
+    buy_now: "Mua ngay"
     sidebar:
       filter: "Lọc"
       search: "Tìm kiếm"
@@ -48,3 +53,13 @@ vi:
       max_price: "Giá tối đa"
       min_price: "Giá tối thiểu"
     menu: "Thực đơn"
+    details: "Thông tin chi tiết"
+    errors:
+      food_not_found: "Không tìm thấy sản phẩm!"
+  category:
+    errors:
+      category_not_found: "Không tìm thấy danh mục!"
+  sort:
+    title: "Sắp xếp theo tên"
+    asc: "A - Z"
+    desc: "Z - A"

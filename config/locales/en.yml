@@ -30,6 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  language:
+    title: "Select language"
+    eng: "English"
+    vi: "Vietnamese"
   users:
     header:
       name: "Foody"
@@ -71,6 +75,7 @@ en:
     success: "Sign up successfully"
   foods:
     add_to_cart: "Add to cart"
+    buy_now: "Buy now"
     sidebar:
       filter: "Filter"
       search: "Search"
@@ -79,3 +84,13 @@ en:
       max_price: "Max price"
       min_price: "Min price"
     menu: "Menu"
+    details: "Food Details"
+    errors:
+      food_not_found: "Food not found!"
+  category:
+    errors:
+      category_not_found: "Category not found!"
+  sort:
+    title: "Sort by name"
+    asc: "A - Z"
+    desc: "Z - A"

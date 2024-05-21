@@ -1,6 +1,27 @@
 class Food < ApplicationRecord
   belongs_to :category
   has_one_attached :image
+  scope :search, lambda {|term|
+    return if term.blank?
+
+    where("foods.name LIKE :term OR foods.description LIKE :term", term:
+       "%#{term}%")
+  }
+  scope :all_of_category, ->(category_id){where category_id:}
+  scope :filter_by_price, lambda {|from, to|
+    return if from.blank? && to.blank?
+
+    if to.blank?
+      where("price >= ?", from)
+    elsif from.blank?
+      where("price <= ?", to)
+    else
+      where("price >= ? AND price <= ?", from, to)
+    end
+  }
+  scope :order_by_name, lambda {|type|
+    order(name: type) if type.present?
+  }
   scope :order_by_created_at, ->{order(created_at: :desc)}
   scope :filter_by_category_ids, lambda {|category_ids|
     return if category_ids.blank?

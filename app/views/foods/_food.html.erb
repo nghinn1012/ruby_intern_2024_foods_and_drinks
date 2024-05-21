@@ -1,24 +1,24 @@
 <div class="col hp">
   <div class="card h-100 shadow-sm">
-    <a href="#">
+    <%= link_to food_path(id: food.id) do %>
       <% if food.image.persisted? %>
         <%= image_tag food.image, class: "w-100" %>
       <% end %>
-    </a>
+    <% end %>
     <div class="label-top shadow-sm">
       <a class="text-white" href="#"><%= food.category_name %></a>
     </div>
     <div class="card-body">
       <div class="clearfix mb-3">
         <span class="float-start badge rounded-pill bg-success"><%= number_to_currency(food.price) %></span>
-        <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link"></a></span>
+        <%= link_to food_path(id: food.id), class: "small text-muted text-uppercase aff-link float-end" do %>
+          <%= content_tag :i, nil, class: "bi bi-eye" %>
+        <% end %>
       </div>
-      <h5 class="card-title">
+      <h5 class="card-title text-center">
         <a target="_blank" href="#"><%= food.name %></a>
-        <br>
-        <a target="_blank" href="#"><%= food.description %></a>
       </h5>
-      <div class="d-grid gap-2 my-3">
+      <div class="d-grid gap-2 my-2">
         <a href="#" class="btn btn-warning bold-btn"><%= t("foods.add_to_cart") %></a>
       </div>
       <div class="clearfix">

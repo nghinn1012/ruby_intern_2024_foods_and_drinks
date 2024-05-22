@@ -33,3 +33,4 @@ validates:
       max_length: 1000
 number:
   digit_8: 8
+  digit_100: 100

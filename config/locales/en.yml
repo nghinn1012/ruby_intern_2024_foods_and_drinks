@@ -94,3 +94,47 @@ en:
     title: "Sort by name"
     asc: "A - Z"
     desc: "Z - A"
+  admin:
+    title: Admin Dashboard
+    sidebar:
+      dashboard: Dashboard
+      new: New
+      manager: Manager
+      users: Users
+      foods: Foods
+      categories: Categories
+      orders: Orders
+    header:
+      dashboard: "Dashboard"
+      users: "Users"
+      settings: "Settings"
+      account: "Account"
+      logout: "Logout"
+    footer:
+      credit: © 2023 creativeLabs.
+    foods:
+      title: "Foods"
+      new: "New Food"
+      image: "Image"
+      name: "Name"
+      description: "Description"
+      price: "Price"
+      actions: "Actions"
+      are_you_sure: "Are you sure you want to delete this item?"
+      edit: "Edit"
+      delete: "Delete"
+      new:
+        title: "New Food"
+        back: "Back"
+        submit: "Submit"
+    search: "Search"
+    shared:
+      food_form:
+        name: "Name"
+        description: "Description"
+        description_placeholder: "Enter description here"
+        price: "Price"
+        image: "Image"
+        choose_category: "Choose a category:"
+        available: "Available"
+        save: "Save"

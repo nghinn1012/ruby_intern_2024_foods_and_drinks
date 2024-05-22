@@ -63,3 +63,47 @@ vi:
     title: "Sắp xếp theo tên"
     asc: "A - Z"
     desc: "Z - A"
+  admin:
+    title: "Bảng điều khiển"
+    sidebar:
+      dashboard: Bảng điều khiển
+      new: Mới
+      manager: Quản lý
+      users: Người dùng
+      foods: Món ăn
+      categories: Danh mục
+      orders: "Đơn hàng"
+    header:
+      dashboard: "Bảng điều khiển"
+      users: "Người dùng"
+      settings: "Cài đặt"
+      account: "Tài khoản"
+      logout: "Đăng xuất"
+    footer:
+      credit: © 2023 creativeLabs.
+    foods:
+      title: "Thực đơn"
+      new: "Thêm Món Ăn Mới"
+      image: "Hình Ảnh"
+      name: "Tên"
+      description: "Mô Tả"
+      price: "Giá"
+      actions: "Thao tác"
+      are_you_sure: "Bạn chắc chắn muốn xóa mục này?"
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      new:
+        title: "Món mới"
+        back: "Quay lại"
+        submit: "Gửi"
+    search: "Tìm kiếm"
+    shared:
+      food_form:
+        name: "Tên"
+        description: "Mô tả"
+        description_placeholder: "Nhập mô tả ở đây"
+        price: "Giá"
+        image: "Hình ảnh"
+        choose_category: "Chọn một danh mục:"
+        available: "Sẵn có"
+        save: "Lưu"

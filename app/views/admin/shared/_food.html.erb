@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <% if food.image.persisted? %>
+      <%= image_tag food.image, width: Settings.number_digit_100 %>
+    <% end %>
+  </td>
+  <td><%= link_to food.name, admin_food_path(id: food.id) %></td>
+  <td><%= food.description %></td>
+  <td><%= number_to_currency(food.price) %></td>
+  <td class="operations">
+    <button type="button" class="btn btn-success">
+      <%= link_to t("admin.foods.edit"), edit_admin_food_path(id: food.id) %>
+    </button>
+    <button type="button" class="btn btn-danger">
+      <%= link_to t("admin.foods.delete"), admin_food_path(id: food.id), data: {turbo_method: :delete, turbo_confirm: t "admin.foods.are_you_sure"}  %>
+    </button>
+  </td>
+</tr>

@@ -127,6 +127,19 @@ en:
         title: "New Food"
         back: "Back"
         submit: "Submit"
+      create:
+        success: "Food created successfully."
+        fail: "Failed to create food."
+      update:
+        title: "Update"
+        success: "Food updated successfully."
+        fail: "Failed to update food."
+      delete:
+        title: "Delete"
+        success: "Food deleted successfully."
+        fail: "Failed to delete food."
+      errors:
+        food_not_found: "Food not found."
     search: "Search"
     shared:
       food_form:

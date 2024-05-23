@@ -1,4 +1,4 @@
-<%= form_for [:admin, @food] do |f| %>
+<%= form_for [:admin, @food], url: admin_food_path, method: :patch do |f| %>
   <div class="form-group">
     <%= f.label :name, t("admin.shared.food_form.name") %>
     <%= f.text_field :name, class: "form-control" %>
@@ -23,5 +23,5 @@
     <%= f.label :available_item, t("admin.shared.food_form.available") %>
     <%= f.text_field :available_item, class: "form-control" %>
   </div>
-  <%= f.submit t("admin.foods.new.submit"), class: "btn btn-primary", data: { turbo: false } %>
+  <%= f.submit t "admin.foods.new.submit", class: "btn btn-primary", data: { turbo: false } %>
 <% end %>

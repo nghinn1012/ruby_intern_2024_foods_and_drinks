@@ -6,8 +6,16 @@ class FoodsController < ApplicationController
     @categories = Category.category_sort
   end
 
-  def show; end
+  def show
+    @item_avaiable_add = find_item_avaiable
+  end
 
+  def find_item_avaiable
+    @cart_item = session[:cart].find do |item|
+      item["user_id"] == current_user.id && item["food_id"] == @food.id
+    end
+    @cart_item.nil? ? @food.available_item : @cart_item["food_avaiable_item"]
+  end
   private
 
   def filtered_foods

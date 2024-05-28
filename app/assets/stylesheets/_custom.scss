@@ -557,6 +557,67 @@ section {
 }
 
 .disabled {
-  opacity: 1; /* Thiết lập độ mờ */
-  cursor: not-allowed; /* Đặt con trỏ chuột thành không cho phép */
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.m-message {
+  margin-top: 10rem;
+}
+
+.flash-message {
+  position: relative;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: opacity 0.5s ease;
+}
+
+.flash-message .message {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.flash-message .close {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  color: $black;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.flash-message .close:hover {
+  opacity: 1;
+}
+
+.alert-success {
+  background-color: $color-default;
+  border-color: $color-primary;
+  color: $black;
+}
+
+.alert-danger {
+  background-color: $color-primary;
+  border-color: $red;
+  color: $black;
+}
+
+.alert-warning {
+  background-color: $bg-color;
+  border-color: $brown;
+  color: $black;
+}
+
+.alert-info {
+  background-color: $color-secondary;
+  border-color: $black;
+  color: $black;
 }

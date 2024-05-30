@@ -1,0 +1,44 @@
+<%= form_with model: @order, url: checkout_path do |f| %>
+  <div class="container">
+    <div class="delivery-info justify-content-center">
+      <h5 class="text-center mb-4"><%= t "orders.delivery" %></h5>
+      <div class="row mb-3 d-flex justify-content-center ">
+        <div class="col-md-8 order-md-1">
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+            <%= f.text_field :address, class: "form-control", placeholder: t("orders.address") %>
+          </div>
+          <p class="error mt-1"><%= show_errors @order, :address %></p>
+        </div>
+      </div>
+      <div class="row mb-3 d-flex justify-content-center ">
+        <div class="col-md-8 order-md-1">
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+            <%= f.text_field :phone, class: "form-control", placeholder: t("orders.phone") %>
+          </div>
+          <p class="error mt-1"><%= show_errors @order, :phone %></p>
+        </div>
+      </div>
+      <div class="row mb-3 d-flex justify-content-center ">
+        <div class="col-md-8 order-md-1">
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-chat-right-text"></i></span>
+            <%= f.text_field :note, class: "form-control", placeholder: t("orders.note") %>
+          </div>
+          <p class="error mt-1"><%= show_errors @order, :note %></p>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown-divider"></div>
+    <div class="payment mt-4">
+      <h5 class="text-center mb-4"><%= t "orders.method.payment_method" %></h5>
+      <div class="d-flex justify-content-center">
+        <%= f.select :payment_method, options_for_select([["Cash", "cash"], ["Card", "card"], ["Paypal", "paypal"]]), {}, class: "form-control" %>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <%= f.submit t("orders.method.submit"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="delivery-info">
+        <%= render "form_order" %>
+      </div>
+    </div>
+    <div class="col-md-5">
+         <%= render partial: "side_bar", locals: { cart_items: @cart_items, total_price: @total_price } %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="sidebar w-100 p-4">
+  <h4 class=" mb-3"><%= t("cart.title") %></h4>
+  <ul class="list-group mb-3">
+    <% if @cart_items.any? %>
+      <% @cart_items.each do |item| %>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h6 class="my-0"><%= item["food_name"] %></h6>
+              <small><%= item["price"] %> x <%= item["food_quantity"] %></small>
+            </div>
+            <span><%= number_to_currency(item["price"] * item["food_quantity"], unit: t("cart.currency")) %></span>
+          </div>
+        </li>
+      <% end %>
+      <li class="list-group-item">
+        <%= t("cart.total_price") %>: <%= number_to_currency(@total_price, unit: t("cart.currency")) %>
+      </li>
+    <% else %>
+      <li class="list-group-item"><%= t("cart.flash_messages.no_cart") %></li>
+    <% end %>
+  </ul>
+</div>

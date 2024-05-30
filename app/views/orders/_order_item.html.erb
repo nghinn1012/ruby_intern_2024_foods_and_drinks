@@ -1,0 +1,18 @@
+<tr class="<%= 'table-danger' if order_item.deleted_at %>">
+  <td>
+    <% if @foods.find_by(id: order_item["food_id"]).image.persisted? %>
+      <%= image_tag order_item.food.image, width: "100", height: "100" %>
+    <% end %>
+  </td>
+  <td><%= @foods.find_by(id: order_item["food_id"]).name %></td>
+  <td>$<%= order_item.price %></td>
+  <td><%= order_item.quantity %></td>
+  <td>$<%= order_item.total %></td>
+  <td>
+    <% if order_item.deleted_at %>
+      <span class="badge bg-danger"><%= t("orders.deleted") %></span>
+    <% else %>
+      <span class="badge bg-success"><%= t("orders.active") %></span>
+    <% end %>
+  </td>
+</tr>

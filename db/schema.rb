@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_21_163800) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_27_014344) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -78,6 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_21_163800) do
     t.decimal "total", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_order_items_on_deleted_at"
     t.index ["food_id"], name: "index_order_items_on_food_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
@@ -87,7 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_21_163800) do
     t.string "note"
     t.string "address"
     t.string "phone"
-    t.integer "status", default: 1
+    t.integer "status", default: 0
     t.integer "amount"
     t.integer "payment_method", default: 0
     t.datetime "delete_at", precision: nil

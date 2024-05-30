@@ -3,7 +3,8 @@ class Food < ApplicationRecord
   category_id image).freeze
   acts_as_paranoid
   belongs_to :category
-  has_one_attached :image, dependent: :nullify
+  has_many :order_items, dependent: :destroy
+  has_one_attached :image, dependent: :purge_later
   scope :search, lambda {|term|
     return if term.blank?
 
@@ -31,6 +32,7 @@ class Food < ApplicationRecord
 
     joins(:category).where(categories: {id: category_ids}).distinct
   }
+  scope :find_ids, ->(ids){where id: ids}
   validates :name, presence: true,
     length: {maximum: Settings.validates.foods.name.max_length}
   validates :description, presence: true,

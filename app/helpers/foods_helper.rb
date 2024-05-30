@@ -35,6 +35,11 @@ module FoodsHelper
       @cart_item["food_avaiable_item"]
   end
 
+  def validate_quantity_first
+    params[:quantity].to_i.positive? && params[:quantity].to_i <=
+      @food["available_item"]
+  end
+
   def update_total_item
     turbo_stream.replace("user_cart_items", "<span class='position-absolute
     top-0 start-100 translate-middle badge rounded-pill bg-danger'

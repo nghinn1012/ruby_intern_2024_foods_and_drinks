@@ -23,9 +23,17 @@ validates:
       max_length: 50
     path:
       max_length: 100
+  orders:
+    address:
+      max_length: 1000
+    phone:
+      max_length: 12
+    note:
+      max_length: 3000
   order_items:
     quantity:
       max: 5000
+      min: 0
   notifications:
     title:
       max_length: 100
@@ -34,3 +42,4 @@ validates:
 number:
   digit_8: 8
   digit_100: 100
+time_format: "%b %d, %Y %I:%M %p"

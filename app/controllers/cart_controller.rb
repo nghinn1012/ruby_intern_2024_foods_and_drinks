@@ -6,7 +6,7 @@ class CartController < ApplicationController
   before_action :pick_cart_item, only: %i(update_quantity destroy)
 
   def create
-    if existed = find_item_in_cart(@food.id)
+    if (existed = find_item_in_cart(@food.id))
       pick_cart_item
       if validate_quantity
         increment_quantity(existed)
@@ -14,7 +14,7 @@ class CartController < ApplicationController
       else
         render_create_error
       end
-    else
+    elsif validate_quantity_first
       add_new_item(@food)
       respond_to do |format|
         format.html{redirect_to cart_path}
@@ -25,6 +25,8 @@ class CartController < ApplicationController
           ]
         end
       end
+    else
+      render_create_error
     end
     check_cart_create
   end

@@ -19,7 +19,9 @@
         <a target="_blank" href="#"><%= food.name %></a>
       </h5>
       <div class="d-grid gap-2 my-2">
-        <%= link_to t("foods.add_to_cart"), add_to_cart_path(id: food.id, quantity: 1), data:{"turbo-method": :post}, class: "btn btn-warning bold-btn" %>
+        <% if food.available_item > 0 %>
+          <%= link_to t("foods.add_to_cart"), add_to_cart_path(id: food.id, quantity: 1), data:{"turbo-method": :post}, class: "btn btn-warning bold-btn" %>
+        <% end %>
       </div>
       <div class="clearfix">
         <span class="float-start"><a href="#"><i class="fas fa-question-circle"></i></a></span>

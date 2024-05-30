@@ -73,7 +73,7 @@
             <h5 class="text-uppercase"><%= t('cart.food.total') %></h5>
             <h5 id="subtotal"><%= subtotal_cart_value(@cart_items) %></h5>
           </div>
-        <button type="button" class="btn btn-outline-dark btn-block btn-lg" data-mdb-ripple-color="dark"><%= t('cart.checkout') %></button>
+          <%= link_to t('cart.checkout'), checkout_path, class: "btn btn-dark btn-block btn-lg" %>
         </div>
       </div>
     <% end %>

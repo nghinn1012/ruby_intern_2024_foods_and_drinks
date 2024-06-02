@@ -8,3 +8,5 @@ import "jquery";
 
 import "./controllers/toastr.min"
 import "./controllers/admin_header"
+import "./controllers/footer"
+import "./controllers/admin_footer"

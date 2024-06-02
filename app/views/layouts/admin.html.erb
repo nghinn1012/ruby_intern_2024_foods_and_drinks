@@ -10,11 +10,10 @@
   </head>
   <body>
     <%= render "layouts/admin/sidebar" %>
-    <div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light m-0">
       <%= render "layouts/admin/header" %>
-      <div class="body flex-grow-1">
+      <div class="body flex-grow-1 m-0">
         <div class="container-lg">
-          <%= flash[:message]%>
           <div class="container wrap">
             <%= render "shared/messages" %>
             <%= yield %>

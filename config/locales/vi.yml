@@ -168,6 +168,7 @@ vi:
     checkout: "Thanh toán"
   orders:
     filter_by_status: "Lọc theo trạng thái"
+    no_order: "Chưa có đơn hàng nào."
     flashes:
       create_success: "Đơn hàng đã được tạo thành công."
       delete_success: "Đơn hàng đã được hủy thành công."
@@ -239,3 +240,23 @@ vi:
     order_canceled:
       title: "Đơn hàng bị hủy"
       content: "Đơn hàng %{order_id} đã hủy bởi bạn. Trạng thái hiện tại: %{status}."
+  hero:
+    title: "Thưởng Thức Thức Ăn Ngon Lành Và Bổ Dưỡng"
+    subtitle: "Một Trang Web Để Mua Thức Ăn Và Đồ Uống"
+    buy_now: "Mua Ngay"
+    watch_video: "Xem Video"
+  about:
+    section_title: "Về Chúng Tôi"
+    learn_more: "Tìm Hiểu Thêm"
+    description_title: "Về Chúng Tôi"
+    book_table: "Đặt Bàn"
+    phone_number: "+1 5589 55488 55"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    list_item_1: "Ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    list_item_2: "Duis aute irure dolor in reprehenderit in voluptate velit."
+    list_item_3: "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur."
+    additional_description: "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+  menu:
+    section_title: "Món Ăn Đặc Biệt Của Chúng Tôi"
+    learn_more: "Tìm Hiểu Thêm"
+    description_title: "Thực Đơn Của Chúng Tôi"

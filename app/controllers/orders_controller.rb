@@ -65,7 +65,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:status, :address, :phone,
+    params.require(:order).permit(:customer_name, :status, :address, :phone,
                                   :note, :payment_method)
   end
 
@@ -97,23 +97,22 @@ class OrdersController < ApplicationController
     end
   end
 
-  def noti_create_order
+  def create_notification type, status
     Notification.create(
       receiver_id: @order.user_id,
-      title: t("notifications.order_created.title"),
-      content: t("notifications.order_created.content", order_id: @order.id,
-      status: @order.status),
+      title: "notifications.order_#{type}.title",
+      content: "notifications.order_#{type}.content",
+      order_id: @order.id,
+      status:,
       read: false
     )
   end
 
+  def noti_create_order
+    create_notification("created", @order.status)
+  end
+
   def noti_cancel_order
-    Notification.create(
-      receiver_id: @order.user_id,
-      title: t("notifications.order_canceled.title"),
-      content: t("notifications.order_canceled.content", order_id: @order.id,
-      status: @order.status),
-      read: false
-    )
+    create_notification("canceled", "canceled")
   end
 end

@@ -1,3 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @foods = Food.all.limit(4)
+  end
 end

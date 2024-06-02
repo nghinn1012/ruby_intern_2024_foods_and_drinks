@@ -7511,7 +7511,7 @@ html:not([dir=rtl]) .callout {
   --cui-callout-border-left-color: #4f5d73;
 }
 
-.footer {
+.footer_admin {
   --cui-footer-min-height: 3rem;
   --cui-footer-padding-x: 1rem;
   --cui-footer-padding-y: 0.5rem;
@@ -7519,6 +7519,7 @@ html:not([dir=rtl]) .callout {
   --cui-footer-bg: #ebedef;
   --cui-footer-border-color: #d8dbe0;
   --cui-footer-border: 1px solid var(--cui-footer-border-color);
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

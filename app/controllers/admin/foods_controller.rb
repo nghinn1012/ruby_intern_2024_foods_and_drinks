@@ -6,7 +6,7 @@ class Admin::FoodsController < Admin::BaseAdminController
   def index
     @pagy, @foods = pagy(Food.order_by_created_at
                         .search(params[:search_term]), items:
-                        Settings.number_digit_8)
+                        Settings.number.digit_6)
   end
 
   def new

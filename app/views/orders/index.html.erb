@@ -8,42 +8,30 @@
           </div>
         </div>
       </div>
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th><%= t("orders.order_id") %></th>
-            <th><%= t("orders.date_created") %></th>
-            <th><%= t("orders.address") %></th>
-            <th><%= t("orders.phone_number") %></th>
-            <th><%= t("orders.status") %></th>
-            <th><%= t("orders.action") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
+      <% if @orders.any? %>
+        <table class="table table-striped table-hover">
+          <thead>
             <tr>
-              <td><%= order.id %></td>
-              <td><%= order.created_at.strftime(Settings.time_format) %></td>
-              <td><%= order.address %></td>
-              <td><%= order.phone %></td>
-              <td>
-                <span class="status <%= status_class(order.status) %>">
-                  <%= t("orders.#{order.status}") %>
-                </span>
-              </td>
-              <td>
-                <%= link_to t("orders.view_details"), order_path(id: order.id), class: "btn btn-sm btn-outline-primary" %>
-                <% if order.status.to_sym == :pending  %>
-                  <%= link_to t("orders.cancel_order"), order_path(id: order.id), data: { turbo_method: :delete, turbo_confirm: t("admin.foods.are_you_sure") }, class: "btn btn-sm btn-danger w-50" %>
-                <% end %>
-              </td>
+              <th><%= t("orders.order_id") %></th>
+              <th><%= t("orders.date_created") %></th>
+              <th><%= t("orders.address") %></th>
+              <th><%= t("orders.phone_number") %></th>
+              <th><%= t("orders.status") %></th>
+              <th><%= t("orders.action") %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <%= render @orders %>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-center pt-3">
+          <%== pagy_bootstrap_nav(@pagy) %>
+        </div>
+      <% else %>
+        <div class="text-center">
+          <p><%= t("orders.no_order") %></p>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <div class="d-flex justify-content-center pt-3">
-    <%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>

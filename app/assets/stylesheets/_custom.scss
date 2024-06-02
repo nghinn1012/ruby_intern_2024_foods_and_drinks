@@ -249,6 +249,8 @@ section {
 
 /* Footer */
 .footer {
+  width: 100%;
+  height: 80px;
   font-size: 14px;
   background-color: $color-primary;
   padding-top: 10px;
@@ -1078,4 +1080,8 @@ section,
   100% {
     transform: translateY(-10px);
   }
+}
+
+.food-image {
+  height: 180px !important;
 }

@@ -1,2 +1,67 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<section id="hero" class="hero section">
+  <div class="container">
+    <div class="row gy-4 justify-content-center justify-content-lg-between">
+      <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <h1 data-aos="fade-up"><%= t("hero.title") %></h1>
+        <p data-aos="fade-up" data-aos-delay="100"><%= t("hero.subtitle") %></p>
+        <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+          <%= link_to t("hero.buy_now"), foods_path %>
+        </div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+        <%= image_tag("hero-img.png", class: "img-fluid animated", alt: "") %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 class=""><%= t("about.section_title") %><br></h2>
+    <p><span class=""><%= t("about.learn_more") %></span> <span class="description-title"><%= t("about.description_title") %></span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+        <%= image_tag("about.jpg", class: "img-fluid", alt: "") %>
+        <div class="book-a-table">
+          <h3><%= t("about.book_table") %></h3>
+          <p><%= t("about.phone_number") %></p>
+        </div>
+      </div>
+      <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+        <div class="content ps-0 ps-lg-5">
+          <p class="fst-italic"><%= t("about.description") %></p>
+          <ul>
+            <li><i class="bi bi-check-circle-fill"></i> <span><%= t("about.list_item_1") %></span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span><%= t("about.list_item_2") %></span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span><%= t("about.list_item_3") %></span></li>
+          </ul>
+          <p><%= t("about.additional_description") %></p>
+
+          <div class="position-relative mt-4">
+            <%= image_tag("about-2.jpg", class: "img-fluid", alt: "") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- /About Section -->
+
+<section id="menu" class="menu section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2 class="mb-5"><%= t("menu.section_title") %></h2>
+    <p><span class=""><%= t("menu.learn_more") %></span> <span class="description-title"><%= t("menu.description_title") %></span></p>
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <% @foods.each do |food| %>
+        <div class="col">
+          <%= render partial: "foods/food", locals: { food: food } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

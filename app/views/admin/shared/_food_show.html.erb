@@ -1,0 +1,28 @@
+<div class="col hp">
+  <div class="card h-100 shadow-sm mb-5">
+    <div class="d-flex justify-content-center align-items-center">
+      <% if food.image.persisted? %>
+        <%= image_tag food.image, class:"d-flex justify-content-center align-items-center"%>
+      <% end %>
+    </div>
+    <div class="label-top shadow-sm">
+      <a class="text-white" href="#"><%= food.category_name %></a>
+    </div>
+    <div class="card-body">
+      <div class="clearfix mb-3">
+        <span class="badge rounded-pill bg-success"><%= number_to_currency(food.price) %></span>
+      </div>
+      <h5 class="card-title text-center">
+        <a target="_blank" href="#"><%= food.name %></a>
+      </h5>
+      <div class="operations d-flex justify-content-center">
+        <button type="button" class="btn btn-success mx-4">
+          <%= link_to t("admin.foods.update.title"), edit_admin_food_path(id: food.id), class: "btn" %>
+        </button>
+        <button type="button" class="btn btn-danger">
+          <%= link_to t("admin.foods.delete.title"), admin_food_path(id: food.id), data: { turbo_method: :delete, turbo_confirm: t("admin.foods.are_you_sure") }, class: "btn" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

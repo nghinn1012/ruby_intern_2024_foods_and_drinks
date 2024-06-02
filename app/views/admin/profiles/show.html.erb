@@ -1,0 +1,23 @@
+<section>
+  <div class="container py-5">
+    <div class="row">
+      <h1 class="text-center mx-2 my-4"><%= t("user_profile.title") %></h1>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <%= render "profile_image_admin" %>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <%= render "users/profile_info" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    </div>
+  </div>
+</section>

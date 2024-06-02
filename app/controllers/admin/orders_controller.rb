@@ -2,13 +2,13 @@ class Admin::OrdersController < Admin::BaseAdminController
   layout "admin"
   before_action :find_order, only: %i(show update_status)
   def index
-    @pagy, @orders = pagy(Order.filter_by_status(params[:status])
-    .order_by_status, items: Settings.number.digit_8)
+    @pagy, @orders = pagy(filtered_orders.order_by_status, items:
+                          Settings.number.digit_8)
   end
 
   def update_status
     if @order.update(order_params)
-      update_noti
+      create_noti
       redirect_to admin_orders_path, notice: t("orders.flashes.status_updated")
     else
       redirect_to admin_orders_path, alert: t("orders.flashes.
@@ -22,7 +22,6 @@ class Admin::OrdersController < Admin::BaseAdminController
   end
 
   private
-
   def order_params
     params.require(:order).permit(:status)
   end
@@ -35,12 +34,13 @@ class Admin::OrdersController < Admin::BaseAdminController
     redirect_to admin_orders_path
   end
 
-  def update_noti
+  def create_noti
     Notification.create(
       receiver_id: @order.user_id,
-      title: t("notifications.order_updated.title"),
-      content: t("notifications.order_updated.content", order_id: @order.id,
-      status: @order.status),
+      title: "notifications.order_updated.title",
+      content: "notifications.order_updated.content",
+      order_id: @order.id,
+      status: @order.status,
       read: false
     )
   end

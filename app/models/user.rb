@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  ATTRIBUTES = %i(name email password password_confirmation
-  date_of_birth gender).freeze
+  ATTRIBUTES = %i(first_name last_name email address phone password
+  password_confirmation image).freeze
   has_many :orders, dependent: :destroy
   has_many :notifications, foreign_key: "receiver_id", dependent: :destroy
+  has_one_attached :image, dependent: :purge_later
   enum role: {admin: 0, user: 1}, _suffix: true
   validates :first_name, presence: true,
     length: {maximum: Settings.validates.users.name.max_length}

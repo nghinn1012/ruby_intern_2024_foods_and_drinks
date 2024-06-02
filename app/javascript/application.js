@@ -7,3 +7,4 @@ import "jquery";
 //= require toastr
 
 import "./controllers/toastr.min"
+import "./controllers/admin_header"

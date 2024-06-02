@@ -2,8 +2,8 @@
   <div class="notification-list notification-list--unread">
     <div class="notification-list_content">
       <div class="notification-list_detail">
-        <p class="<%= check_read notification %>"><%= notification.title %></p>
-        <p class="text-muted"><%= notification.content %></p>
+        <p class="<%= check_read notification %>"><%= t(notification.title) %></p>
+        <p class="text-muted"><%= t(notification.content, order_id: notification.order_id, status: notification.status) %></p>
         <p class="text-muted"><small><%= notification.created_at %></small></p>
       </div>
     </div>

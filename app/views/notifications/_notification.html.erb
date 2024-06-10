@@ -1,0 +1,16 @@
+<div class="notification-ui_dd-content">
+  <div class="notification-list notification-list--unread">
+    <div class="notification-list_content">
+      <div class="notification-list_detail">
+        <p class="<%= check_read notification %>"><%= notification.title %></p>
+        <p class="text-muted"><%= notification.content %></p>
+        <p class="text-muted"><small><%= notification.created_at %></small></p>
+      </div>
+    </div>
+    <% if notification.read == false %>
+      <div class="notification-list_feature-img">
+        <%= link_to t("notifications.mark_as_read"), user_notification_mark_as_read_path(notification_id: notification.id), data: {turbo_method: :patch}, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

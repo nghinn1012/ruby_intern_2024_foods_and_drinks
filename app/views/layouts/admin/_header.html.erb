@@ -3,6 +3,12 @@
     <button class="header-toggler px-md-0 me-md-3" type="button" onclick="">
       <a href=""><%= t "users.header.name" %></a>
     </button>
+    <button class="header-toggler px-md-0 me-md-3" type="button" onclick="">
+      <%= link_to image_tag('vi.png', class: 'd-flex align-items-center locale-icon'), locale: :vi %>
+    </button>
+    <button class="header-toggler" type="button" onclick=""></button>
+      <%= link_to image_tag('en.png', class: 'd-flex align-items-center locale-icon'), locale: :en %>
+    </button>
     <ul class="header-nav ms-auto">
       <li class="nav-item dropdown">
         <div class="dropdown">
@@ -30,6 +36,5 @@
         </li>
         <li class="breadcrumb-item active"><span><%= t(".blank") %></span></li>
       </ol>
-    </nav>
   </div>
 </header>

@@ -27,6 +27,7 @@ class Food < ApplicationRecord
     order(name: type) if type.present?
   }
   scope :order_by_created_at, ->{order(created_at: :desc)}
+  scope :order_by_quantity, ->{order(available_item: :desc)}
   scope :filter_by_category_ids, lambda {|category_ids|
     return if category_ids.blank?
 

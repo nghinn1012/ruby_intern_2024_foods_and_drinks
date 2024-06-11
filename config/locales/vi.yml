@@ -34,6 +34,7 @@ vi:
     dont_have_account: "Bạn chưa có tài khoản?"
     register: "Đăng ký ngay"
     success: "Đăng nhập thành công"
+    forgot_password: "Quên mật khẩu?"
     errors:
       user_not_found: "Không tìm thấy nguời dùng!"
       invalid_combination: "Sai mật khẩu!"

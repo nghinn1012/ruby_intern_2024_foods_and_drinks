@@ -68,6 +68,7 @@ en:
     dont_have_account: "Don't have an account?"
     register: "Register now"
     success: "Login successfully"
+    forgot_password: "Forgot password?"
     errors:
       user_not_found: "User not found!"
       invalid_combination: "Wrong password!"

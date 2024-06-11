@@ -26,4 +26,8 @@ module ApplicationHelper
       image_tag("en.png", class: "d-flex align-items-center locale-icon")
     end
   end
+
+  def required_label label_text
+    sanitize("#{t(label_text)} <span class='text-danger'>*</span>")
+  end
 end

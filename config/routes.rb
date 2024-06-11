@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
+    devise_for :users, controllers:
+      {registrations: "users/registrations",
+        confirmations: "users/confirmations",
+        sessions: "users/sessions"}
     get "static_pages/home"
     root "static_pages#home"
-
     get "signup", to: "users#new"
     post "signup", to: "users#create"
     get "/users/:id/edit", to: "users#edit", as: :edit_user

@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
   include Pagy::Backend
   include NotificationHelper
   before_action :set_locale, :check_cart_create

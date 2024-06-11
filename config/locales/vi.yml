@@ -15,6 +15,7 @@ vi:
       search: "Tìm..."
       order: "Đơn hàng"
       logout: "Đăng xuất"
+      show_profile: "Thông tin cá nhân"
     footer:
       address:
         title: "Địa chỉ"
@@ -32,6 +33,7 @@ vi:
     remember: "Nhớ đăng nhập"
     dont_have_account: "Bạn chưa có tài khoản?"
     register: "Đăng ký ngay"
+    success: "Đăng nhập thành công"
     errors:
       user_not_found: "Không tìm thấy nguời dùng!"
       invalid_combination: "Sai mật khẩu!"
@@ -41,9 +43,26 @@ vi:
     last_name: "Họ"
     email: "Email"
     password: "Mật khẩu"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    image: "Hình ảnh"
     password_confirmation: "Xác nhận mật khẩu"
     submit: "Xác nhận"
-    success: "Đăng ký thành công"
+    success: "Đăng ký thành công."
+    error: "Đăng ký thất bại. Vui lòng thử lại sau."
+    already_have_account: "Đã có tài khoản?"
+  update:
+    title: "Cập nhật thông tin"
+    success_message: "Cập nhật thông tin người dùng thành công."
+    error_message: "Cập nhật thông tin người dùng thất bại. Vui lòng thử lại sau."
+  user_profile:
+    title: "Hồ sơ người dùng"
+    first_name: "Tên"
+    last_name: "Họ"
+    email: "Email"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    update: "Cập nhật"
   foods:
     add_to_cart: "Thêm vào giỏ"
     buy_now: "Mua ngay"

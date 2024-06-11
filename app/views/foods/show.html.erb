@@ -26,7 +26,7 @@
                     <div class="d-flex align-items-center me-3">
                         <%= form_tag add_to_cart_path(id: @food.id), method: :post, remote: true do %>
                             <div class="d-flex align-items-center">
-                                <%= text_field_tag 'quantity', 1, class: 'form-control input-number', id: "input-numb1-#{@food.id}", type: 'number', style: 'max-width: 3rem' %>
+                                <%= text_field_tag "quantity", 1, class: "form-control input-number", id: "input-numb1-#{@food.id}", type: "number", style: "max-width: 5rem" %>
                                 <p class="m-0 mx-2" style="font-size: 1.2rem;">/</p>
                                 <p class="m-0" style="font-size: 1.2rem;" id="item_avaiable_<%= @food.id %>"><%= @item_avaiable_add %></p>
                             </div>

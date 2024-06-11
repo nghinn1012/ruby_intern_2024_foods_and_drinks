@@ -4,37 +4,19 @@
       <a href=""><%= t "users.header.name" %></a>
     </button>
     <ul class="header-nav ms-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-bell icon icon-lg"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-list-task icon icon-lg"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="bi bi-envelope-open icon icon-lg"></i>
-        </a>
-      </li>
-    </ul>
-    <ul class="header-nav ms-3">
       <li class="nav-item dropdown">
-        <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <div class="avatar avatar-md"><img class="avatar-img" src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="user@email.com"></div>
-        </a>
-        <div class="dropdown-menu dropdown-menu-end pt-0">
-          <div class="dropdown-header bg-light py-2">
-            <div class="fw-semibold"><%= t("admin.header.account") %></div>
+        <div class="dropdown">
+          <button id="userDropdownButton" class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="avatar avatar-md"><%= image_tag(current_user && current_user.image.attached? ? current_user.image : "default_avatar.png", class: "locale-icon") %></div>
+          </button>
+          <div class="dropdown-menu dropdown-menu-start" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-header bg-light py-2">
+              <div class="fw-semibold"><%= link_to t("users.header.show_profile"), admin_profile_path %></div>
+            </div>
+             <div class="dropdown-header bg-light py-2">
+              <div class="fw-semibold"><%= link_to t("admin.header.logout"), logout_path, data: {turbo_method: :delete} %></div>
+            </div>
           </div>
-          <div class="dropdown-header bg-light py-2">
-            <div class="fw-semibold"><%= t("admin.header.settings") %></div>
-          </div>
-          <a class="dropdown-item" href="#">
-            <%= t("admin.header.logout") %>
-          </a>
         </div>
       </li>
     </ul>

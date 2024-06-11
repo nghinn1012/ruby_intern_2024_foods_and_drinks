@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     reset_session
     remember_me @user
     log_in @user
+    flash[:success] = t("login.success")
     redirect_to is_admin? ? admin_foods_path : root_path
   end
 
@@ -23,14 +24,14 @@ class SessionsController < ApplicationController
     @user = User.find_by email: params.dig(:session, :email)&.downcase
     return if @user
 
-    flash.now[:danger] = t("login.errors.user_not_found")
+    flash.now[:error] = t("login.errors.user_not_found")
     render :new, status: :unprocessable_entity
   end
 
   def authenticate_user
     return if @user.authenticate params.dig(:session, :password)
 
-    flash.now[:danger] = t("login.errors.invalid_combination")
+    flash.now[:error] = t("login.errors.invalid_combination")
     render :new, status: :unprocessable_entity
   end
 

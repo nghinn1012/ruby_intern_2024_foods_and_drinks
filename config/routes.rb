@@ -4,9 +4,14 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     get "signup", to: "users#new"
+    post "signup", to: "users#create"
+    get "/users/:id/edit", to: "users#edit", as: :edit_user
+    patch "/users/:id", to: "users#update"
+    put "/users/:id", to: "users#update"
     get "login", to: "sessions#new"
     post "login", to: "sessions#create"
     delete "logout", to: "sessions#destroy"
+    get "show_profile", to: "users#show"
     delete "/admin/foods/:id", to: "admin/foods#destroy", as: "admin_food"
     get "cart", to:"cart#show"
     post "add_to_cart/:id", to: "cart#create", as: "add_to_cart"
@@ -36,6 +41,7 @@ Rails.application.routes.draw do
           patch :update_status
         end
       end
+      resource :profile, only: %i(show edit update)
     end
   end
 end

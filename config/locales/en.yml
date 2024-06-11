@@ -200,6 +200,7 @@ en:
     checkout: "Checkout"
   orders:
     filter_by_status: "Filter by status"
+    no_orders: "No orders"
     flashes:
       create_success: "Order was successfully created."
       delete_success: "Order was successfully deleted."
@@ -272,3 +273,23 @@ en:
     order_canceled:
       title: "Order canceled"
       content: "Order %{order_id} has been cancel. Current status: %{status}."
+  hero:
+    title: "Enjoy Healthy Delicious Food"
+    subtitle: "A Website For Buying Foods And Drinks"
+    buy_now: "Buy Now"
+    watch_video: "Watch Video"
+  about:
+    section_title: "About Us"
+    learn_more: "Learn More"
+    description_title: "About Us"
+    book_table: "Book a Table"
+    phone_number: "+1 5589 55488 55"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    list_item_1: "Ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    list_item_2: "Duis aute irure dolor in reprehenderit in voluptate velit."
+    list_item_3: "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur."
+    additional_description: "Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+  menu:
+    section_title: "Our Special Food"
+    learn_more: "Learn More"
+    description_title: "Our Menu"

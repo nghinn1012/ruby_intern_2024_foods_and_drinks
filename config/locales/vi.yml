@@ -280,3 +280,5 @@ vi:
       content:
         description: "Bạn đã yêu cầu đặt lại mật khẩu của mình."
         change_password: "Thay Đổi Mật Khẩu"
+  action:
+    not_permit: "Không có quyền truy cập"

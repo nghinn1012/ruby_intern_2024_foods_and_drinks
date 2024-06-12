@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :load_food, only: %i(show)
+  load_and_authorize_resource
   def index
     @foods = filtered_foods
     @pagy, @foods = pagy(@foods, items: Settings.number.digit_8)

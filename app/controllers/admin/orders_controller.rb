@@ -1,8 +1,8 @@
 class Admin::OrdersController < Admin::BaseAdminController
   layout "admin"
-  before_action :find_order, only: %i(show update_status)
+  load_and_authorize_resource
   def index
-    @pagy, @orders = pagy(filtered_orders.order_by_status, items:
+    @pagy, @orders = pagy(@orders.order_by_status, items:
                           Settings.number.digit_8)
   end
 

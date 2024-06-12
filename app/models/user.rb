@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
+  attr_accessor :current_password
   attr_accessor :remember_token
 
   ATTRIBUTES = %i(first_name last_name email address phone password
@@ -18,9 +19,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
     format: {with: Settings.validates.users.email.format},
     length: {maximum: Settings.validates.users.email.max_length}
-  validates :password, presence: true,
-    length: {minimum: Settings.validates.users.password.min_length}
-
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -29,5 +27,9 @@ class User < ApplicationRecord
 
   def downcase_email
     email.downcase!
+  end
+
+  def password_required?
+    false
   end
 end

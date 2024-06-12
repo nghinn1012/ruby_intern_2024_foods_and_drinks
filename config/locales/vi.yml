@@ -261,3 +261,22 @@ vi:
     section_title: "Món Ăn Đặc Biệt Của Chúng Tôi"
     learn_more: "Tìm Hiểu Thêm"
     description_title: "Thực Đơn Của Chúng Tôi"
+  confirmation:
+    success: "Xác thực tài khoản thành công."
+  passwords:
+    title: "Đổi mật khẩu"
+    updated: "Cập nhật mật khẩu thành công"
+    current_password: "Mật khẩu hiện tại"
+    new_password: "Mật khẩu mới"
+    confirm_new_password: "Xác nhận mật khẩu mới"
+    submit: "Đổi mật khẩu"
+  user_mailer:
+    hi: "Hi %{user}"
+    account_activation:
+      content:
+        description: "Please activate your account by clicking the following link:"
+        activate: "Activate Account"
+    password_reset:
+      content:
+        description: "Bạn đã yêu cầu đặt lại mật khẩu của mình."
+        change_password: "Thay Đổi Mật Khẩu"

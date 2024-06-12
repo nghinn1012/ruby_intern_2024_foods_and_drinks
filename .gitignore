@@ -63,3 +63,4 @@ log/development.log
 \!/public/fonts/.keep
 /node_modules
 /storage
+config/application.yml

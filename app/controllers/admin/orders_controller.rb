@@ -27,7 +27,7 @@ class Admin::OrdersController < Admin::BaseAdminController
   end
 
   def find_order
-    @order = Order.find_by params[:id]
+    @order = Order.find_by(id: params[:id])
     return if @order
 
     flash[:danger] = t("orders.no_order")

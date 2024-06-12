@@ -294,3 +294,22 @@ en:
     section_title: "Our Special Food"
     learn_more: "Learn More"
     description_title: "Our Menu"
+  confirmation:
+    success: "Your account has been successfully confirmed."
+  passwords:
+    title: "Change password"
+    updated: "Password updated successfully"
+    current_password: "Current password"
+    new_password: "New password"
+    confirm_new_password: "Confirm new password"
+    submit: "Change password"
+  user_mailer:
+    hi: "Hi %{user}"
+    account_activation:
+      content:
+        description: "Please activate your account by clicking the following link:"
+        activate: "Activate Account"
+    password_reset:
+      content:
+        description: "You have requested to reset your password."
+        change_password: "Change Password"

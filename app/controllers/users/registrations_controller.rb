@@ -1,52 +1,39 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :load_resource, only: %i(update_info update_password)
-  before_action :configure_sign_up_params
-  def update_info
-    if resource.update_without_password user_params
-      flash[:success] = t("update.success_message")
-      redirect_back(fallback_location: root_path)
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
+  before_action :configure_sign_up_params, :configure_permitted_parameters,
+                if: :devise_controller?
+  def change_password; end
 
   def update_password
-    if resource.update_password password_params
-      sign_out(resource)
-      redirect_to root_path, notice: t("update.error_message")
+    if current_user.update_with_password(password_update_params)
+      redirect_to root_path, notice: t("passwords.updated")
     else
+      flash.now[:error] = current_user.errors.full_messages.join(", ")
       render :change, status: :unprocessable_entity
     end
   end
 
-  def change
-    self.resource = resource_class.new
-  end
-  private
-
-  def load_resource
-    self.resource = resource_class
-                    .to_adapter.get!(send(:"current_#{resource_name}").to_key)
-  end
-
-  def password_params
-    params.require(:user).permit(:current_password,
-                                 :password, :password_confirmation)
-  end
-
-  def user_params
-    params.require(:user)
-          .permit :first_name, :last_name, :image
-  end
-
   protected
+  def password_update_params
+    params.require(:user).permit(:current_password, :password,
+                                 :password_confirmation)
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:account_update, keys: [:email,
+    :first_name, :last_name, :image, :phone, :address])
+  end
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name,
     :email, :password, :password_confirmation])
   end
 
-  def after_inactive_sign_up_path_for resource_name
-    new_user_registration_path(resource_name)
+  def update_resource resource, params
+    if params[:password].blank? && params[:password_confirmation].blank? &&
+       params[:current_password].blank?
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
   end
 end

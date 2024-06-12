@@ -1,0 +1,33 @@
+<% provide :title, t("passwords.title") %>
+<section class="py-5 bg-light">
+  <div class="container px-4 px-lg-5 mt-3">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-header">
+            <h3 class="text-center my-3"><%= t("passwords.title") %></h3>
+          </div>
+          <div class="card-body p-3 p-sm-5 fw-bold">
+            <%= form_for(current_user, as: resource_name, url: users_change_password_path, html: { method: :put }) do |f| %>
+              <div class="mb-2">
+                <%= f.label :current_password, t("passwords.current_password") %>
+                <%= f.password_field :current_password, class: "form-control" %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :password, t("passwords.new_password") %>
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+              <div class="mb-2">
+                <%= f.label :password_confirmation, t("passwords.confirm_new_password") %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+              <div class="d-grid">
+                <%= f.submit t("passwords.submit"), class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

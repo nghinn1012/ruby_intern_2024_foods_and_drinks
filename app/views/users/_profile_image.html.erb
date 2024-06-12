@@ -4,6 +4,7 @@
   <p class="text-muted mb-1"><%= current_user.role.upcase %></p>
   <p class="text-muted mb-4"><%= current_user.email %></p>
   <div class="d-flex justify-content-center mb-2">
-    <%= link_to t("user_profile.update"), edit_user_path(id: current_user.id), class: "btn btn-primary" %>
+    <%= link_to t("user_profile.update"), edit_user_registration_path , class: "btn btn-primary mx-4" %>
+    <%= link_to t("user_profile.update_password"), users_change_password_path , class: "btn btn-primary" %>
   </div>
 </div>

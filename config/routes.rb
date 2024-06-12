@@ -4,6 +4,10 @@ Rails.application.routes.draw do
       {registrations: "users/registrations",
         confirmations: "users/confirmations",
         sessions: "users/sessions"}
+    devise_scope :user do
+      get "users/change_password" => "users/registrations#change"
+      put "users/change_password" => "users/registrations#update_password"
+    end
     get "static_pages/home"
     root "static_pages#home"
     get "signup", to: "users#new"

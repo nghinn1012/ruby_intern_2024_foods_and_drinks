@@ -1,6 +1,5 @@
 module ApplicationHelper
   include Pagy::Frontend
-  include FoodsHelper
   def full_title page_title
     base_title = Settings.name
     page_title.blank? ? base_title : "#{page_title} | #{base_title}"

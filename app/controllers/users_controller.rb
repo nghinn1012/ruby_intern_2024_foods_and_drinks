@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i(edit update)
   def new
     @user = User.new
   end

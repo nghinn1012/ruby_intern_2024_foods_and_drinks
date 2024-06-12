@@ -2,7 +2,7 @@
   <div class="card h-100 shadow-sm">
     <%= link_to food_path(id: food.id) do %>
       <% if food.image.persisted? %>
-        <%= image_tag food.image, class: "w-100" %>
+        <%= image_tag food.image, class: "w-100", id: "food_image" %>
       <% end %>
     <% end %>
     <div class="label-top shadow-sm">

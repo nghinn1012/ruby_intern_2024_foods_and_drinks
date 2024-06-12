@@ -9,7 +9,7 @@
           <div class="col-md-1 col-lg-1 col-xl-1 fw-bold"><%= t("cart.food.image") %></div>
           <div class="col-md-2 col-lg-2 col-xl-2 fw-bold"><%= t("cart.food.name") %></div>
           <div class="col-md-2 col-lg-2 col-xl-2 fw-bold"><%= t("cart.food.quantity") %></div>
-          <div class="col-md-1 col-lg-1 col-xl-1 fw-bold"><%= t("cart.food.price") %></div>
+          <div class="col-md-1 col-lg-2 col-xl-2 fw-bold"><%= t("cart.food.price") %></div>
           <div class="col-md-2 col-lg-2 col-xl-2 fw-bold"><%= t("cart.food.cost") %></div>
           <div class="col-md-2 col-lg-2 col-xl-2 fw-bold"><%= t("cart.food.avaiable") %></div>
           <div class="col-md-1 col-lg-1 col-xl-1 fw-bold"></div>
@@ -34,7 +34,7 @@
                   </div>
                 <% end %>
               </div>
-              <div class="col-md-1 col-lg-1 col-xl-1">
+              <div class="col-md-1 col-lg-2 col-xl-2">
                 <h6 class="text-black mb-0"><%= cart_item["price"] %></h6>
               </div>
               <div class="col-md-2 col-lg-2 col-xl-2">
@@ -66,10 +66,10 @@
     </div>
     <% if @cart_items.any? %>
       <div class="col-lg-3 bg-grey" id="cart-summary">
-        <div class="p-5">
-          <h3 class="fw-bold mb-5 mt-2 pt-1"><%= t('cart.summary') %></h3>
-          <hr class="my-4">
-          <div class="d-flex justify-content-between mb-4">
+        <div class="py-5 mt-3 px-3">
+          <h3 class="fw-bold mb-5 mt-2"><%= t('cart.summary') %></h3>
+          <hr class="my-2s">
+          <div class="d-flex justify-content-between">
             <h5 class="text-uppercase"><%= t('cart.food.total') %></h5>
             <h5 id="subtotal"><%= subtotal_cart_value(@cart_items) %></h5>
           </div>

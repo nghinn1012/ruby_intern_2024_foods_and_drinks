@@ -31,7 +31,6 @@
                                 <p class="m-0" style="font-size: 1.2rem;" id="item_avaiable_<%= @food.id %>"><%= @item_avaiable_add %></p>
                             </div>
                             <div class="buttons d-flex flex-row mt-5 gap-3">
-                                <button class="btn btn-outline-dark <%= item_avaiable(@food) %>" type="button"><%= t("foods.buy_now") %></button>
                                 <button class="btn btn-dark <%= item_avaiable(@food) %>" type="submit"><%= t("foods.add_to_cart") %></button>
                             </div>
                         <% end %>

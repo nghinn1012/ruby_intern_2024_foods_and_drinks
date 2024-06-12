@@ -42,5 +42,6 @@ validates:
 number:
   digit_8: 8
   digit_6: 6
+  digit_5: 5
   digit_100: 100
 time_format: "%b %d, %Y %I:%M %p"

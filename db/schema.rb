@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_02_114551) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_04_092713) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -69,6 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_02_114551) do
     t.datetime "updated_at", null: false
     t.integer "order_id"
     t.string "status"
+    t.integer "order_id"
+    t.string "status"
     t.index ["receiver_id"], name: "index_notifications_on_receiver_id"
   end
 
@@ -107,7 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_02_114551) do
     t.string "email", null: false
     t.boolean "is_actived", default: false
     t.string "phone"
-    t.string "password_digest"
     t.string "address"
     t.integer "role", default: 1
     t.string "reset_password_token"
@@ -116,9 +117,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_02_114551) do
     t.string "confirm_token"
     t.datetime "confirm_at", precision: nil
     t.datetime "confirm_sent_at", precision: nil
-    t.string "remember_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

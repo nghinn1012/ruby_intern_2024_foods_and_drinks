@@ -5,7 +5,7 @@
     <% end %>
   </td>
   <td><%= link_to food.name, admin_food_path(id: food.id) %></td>
-  <td><%= food.description %></td>
+  <td><%= food.available_item %></td>
   <td><%= number_to_currency(food.price) %></td>
   <td class="operations">
     <button type="button" class="btn btn-success">

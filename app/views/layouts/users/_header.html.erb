@@ -6,91 +6,87 @@
     <nav id="navbar" class="navbar ml-5">
       <ul>
         <li><%= link_to t("users.header.home"), "/" %></li>
-        <li class="dropdown"><a href="#"><span><%= t "users.header.category" %></span>
-            <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+        <li class="dropdown">
+          <a href="#">
+            <span><%= t "users.header.category" %></span>
+            <i class="bi bi-chevron-down dropdown-indicator"></i>
+          </a>
           <ul>
-          <% Category.all.each do |category| %>
-             <li><%= link_to category.name, category_path(id: category.id) %></li>
-          <% end %>
+            <% Category.all.each do |category| %>
+              <li><%= link_to category.name, category_path(id: category.id) %></li>
+            <% end %>
           </ul>
         </li>
         <li><%= link_to t("users.header.menu"), foods_path %></li>
-        <% if logged_in? %>
-        <li><%= link_to t("users.header.order"), order_history_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to t("users.header.order"), order_history_path %></li>
         <% end %>
       </ul>
     </nav>
-      <nav class="navbar">
-         <ul>
-          <li class="dropdown">
-            <a href="#">
-              <%= current_language_icon %>
-              <i class="bi bi-chevron-down dropdown-indicator"></i>
+
+    <nav class="navbar">
+      <ul>
+        <li class="dropdown">
+          <a href="#">
+            <%= current_language_icon %>
+            <i class="bi bi-chevron-down dropdown-indicator"></i>
+          </a>
+          <ul>
+            <li><%= link_to image_tag("vi.png", class: "d-flex align-items-center locale-icon"), locale: :vi %></li>
+            <li><%= link_to image_tag("en.png", class: "d-flex align-items-center locale-icon"), locale: :en %></li>
+          </ul>
+        </li>
+
+        <% if user_signed_in? %>
+          <li class="dropdown notification-dropdown">
+            <a href="#" class="btn position-relative mx-2" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bell icon icon-lg"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <%= count_noti %>
+              </span>
             </a>
-            <ul>
-              <li>
-                <%= link_to image_tag('vi.png', class: 'd-flex align-items-center locale-icon'), locale: :vi %>
+            <ul class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notificationDropdown">
+              <li class="d-flex align-items-center text-center text-bold">
+                <%= link_to t("notifications.mark_as_read_all"), mark_as_read_all_path, data: { turbo_method: :post }, class: "float-end" %>
               </li>
-              <li>
-                <%= link_to image_tag('en.png', class: 'd-flex align-items-center locale-icon'), locale: :en %>
+              <% load_notifications.limit(10).each do |notification| %>
+                <%= render "layouts/notification_item", notification: notification %>
+              <% end %>
+              <% if load_notifications.empty? %>
+                <li class="notification-item">
+                  <a href="#" class="dropdown-item disabled"><%= t("notifications.no_noti") %></a>
+                </li>
+              <% end %>
+              <li class="d-flex align-items-center text-center text-bold show_all fixed-position">
+                <%= link_to t("notifications.show_all"), user_notifications_path(user_id: current_user.id), class: "d-flex align-items-center text-center text-bold show_all fixed-position" %>
               </li>
             </ul>
           </li>
+
+          <%= link_to cart_path do %>
+            <div class="btn btn-book-a-table rounded-circle position-relative">
+              <i class="bi bi-cart3 icon"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="user_cart_items">
+                <%= count_item @cart_items %>
+              </span>
+            </div>
+          <% end %>
+
+          <li class="dropdown">
+            <a href="#">
+              <%= image_tag(current_user && current_user.image.attached? ? current_user.image : "default_avatar.png", class: "locale-icon") %>
+              <span><%= current_user.full_name %></span>
+              <i class="bi bi-chevron-down dropdown-indicator"></i>
+            </a>
+            <ul>
+              <li><%= link_to t("users.header.show_profile"), show_profile_path %></li>
+              <li><%= button_to t("users.header.logout"), destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t("users.header.login"), user_session_path, class: "login" %></li>
+        <% end %>
       </ul>
-     <% if logged_in? %>
-      <li class="dropdown notification-dropdown">
-        <a href="#" class="btn position-relative mx-2" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-bell icon icon-lg"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            <%= count_noti %>
-          </span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notificationDropdown">
-            <li class="d-flex align-items-center text-center text-bold">
-                <%= link_to(t("notifications.mark_as_read_all"), mark_as_read_all_path, data: {turbo_method: :post}, class: "float-end") %>
-            </li>
-            <% load_notifications.limit(10).each do |notification| %>
-                <%= render "layouts/notification_item", notification: notification %>
-            <% end %>
-            <% if load_notifications.empty? %>
-            <li class="notification-item">
-                <a href="#" class="dropdown-item disabled"><%= t("notifications.no_noti") %></a>
-            </li>
-            <% end %>
-            <li class="d-flex align-items-center text-center text-bold show_all fixed-position">
-                <%= link_to(t("notifications.show_all"), user_notifications_path(user_id: current_user.id), class: "d-flex align-items-center text-center text-bold show_all fixed-position") %>
-            </li>
-        </ul>
-      </li>
-      <%= link_to cart_path do %>
-        <div class="btn btn-book-a-table rounded-circle position-relative">
-          <i class="bi bi-cart3 icon"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="user_cart_items">
-              <%= count_item @cart_items %>
-            </span>
-        </div>
-      <% end %>
-          <ul>
-            <li class="dropdown">
-              <a href="#">
-                <%= image_tag(current_user && current_user.image.attached? ? current_user.image : "default_avatar.png", class: 'locale-icon') %>
-                <span><%= current_user.full_name %></span>
-                <i class="bi bi-chevron-down dropdown-indicator"></i>
-              </a>
-              <ul>
-                <li>
-                  <%= link_to t("users.header.show_profile"), show_profile_path %>
-                </li>
-                <li>
-                  <%= button_to t("users.header.logout"), logout_path, method: :delete %>
-                </li>
-              </ul>
-            </li>
-          </ul>
-    <% else %>
-      <%= link_to t("users.header.login"), login_path, class: "login" %>
-    <% end %>
     </nav>
   </div>
 </header>
-

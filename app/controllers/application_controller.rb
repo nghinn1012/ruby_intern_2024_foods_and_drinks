@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include NotificationHelper
   before_action :set_locale, :check_cart_create
 
+  protect_from_forgery with: :exception
+  rescue_from CanCan::AccessDenied, with: :access_denied
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -25,5 +27,11 @@ class ApplicationController < ActionController::Base
   def delete_all
     session[:cart].reject!{|item| item["user_id"] == current_user.id}
     check_cart_create
+  end
+
+  def access_denied
+    flash[:danger] = t("action.not_permit")
+    back_path = send "#{controller_name}s_path"
+    redirect_to current_user.role.to_sym == :admin ? back_path : root_path
   end
 end

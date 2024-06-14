@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for resource
     sign_in(resource)
     if resource.role.to_sym == :admin
-      admin_root_path
+      admin_foods_path
     else
       super
     end

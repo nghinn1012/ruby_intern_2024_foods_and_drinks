@@ -313,3 +313,5 @@ en:
       content:
         description: "You have requested to reset your password."
         change_password: "Change Password"
+  action:
+    not_permit: "Not permit to access"

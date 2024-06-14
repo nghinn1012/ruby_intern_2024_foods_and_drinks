@@ -1,7 +1,8 @@
 class Admin::FoodsController < Admin::BaseAdminController
   layout "admin"
-  before_action :load_food, only: %i(show edit update destroy)
   before_action :load_category, only: %i(create new show edit update)
+  load_and_authorize_resource
+  rescue_from ActiveRecord::RecordNotFound, with: :food_not_found
 
   def index
     @pagy, @foods = pagy(Food.order_by_created_at
@@ -61,11 +62,8 @@ class Admin::FoodsController < Admin::BaseAdminController
     params.require(:food).permit Food::ADMIN_FOODS
   end
 
-  def load_food
-    @food = Food.find_by id: params[:id]
-    return if @food
-
-    flash[:danger] = t("foods.errors.food_not_found")
+  def food_not_found
+    flash[:danger] = t "admin.foods.flash.food_not_found"
     redirect_to admin_foods_path
   end
 

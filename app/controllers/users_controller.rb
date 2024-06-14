@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   def new
     @user = User.new
   end
@@ -33,11 +34,8 @@ class UsersController < ApplicationController
     params.require(:user).permit User::ATTRIBUTES
   end
 
-  def find_user
-    @user = User.find_by(id: params[:id])
-    return if @user
-
-    flash[:danger] = t("update.error_message")
-    redirect_to user_path
+  def user_not_found
+    flash[:danger] = t "users.flash.user_not_found"
+    redirect_to root_path
   end
 end

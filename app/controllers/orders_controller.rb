@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   include OrdersHelper
   include FoodsHelper
   before_action :find_order, only: %i(show destroy)
+  load_and_authorize_resource
   def new
     @order = current_user.orders.build
     check_cart_create

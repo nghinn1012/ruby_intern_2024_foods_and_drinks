@@ -2,9 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable
-  attr_accessor :current_password
+         :recoverable, :rememberable, :validatable, :lockable
   attr_accessor :remember_token
+  attr_accessor :current_password
 
   ATTRIBUTES = %i(first_name last_name email address phone password
   password_confirmation image).freeze

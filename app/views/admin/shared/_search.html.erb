@@ -1,8 +1,0 @@
-<div class="admin-search-bar">
-  <%= form_tag(admin_foods_path, method: :get, class: "form-inline") do %>
-    <div class="input-group">
-      <%= text_field_tag(:search_term, params[:search_term], class: "form-control", placeholder: t("admin.search")) %>
-      <button class="btn btn-primary" type="submit"><%= t("admin.search") %></button>
-    </div>
-  <% end %>
-</div>

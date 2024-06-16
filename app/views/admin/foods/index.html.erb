@@ -1,17 +1,18 @@
-<div class="d-flex justify-content-between align-items-center mx-5"></div>
-  <h1 class="mb-0 text-center"><%= t "admin.foods.title" %></h1>
-  <div class="container m-left">
-    <div class="row d-flex align-items-center">
-      <div class="col col-gap">
-        <%= render "admin/shared/search" %>
-      </div>
-       <div class="col col-gap">
-      </div>
-      <div class="col mx-4">
-        <%= link_to t("admin.foods.new.title"), new_admin_food_path, class: "btn btn-primary" %>
-      </div>
+<div class="d-flex justify-content-between align-items-center">
+  <div class="flex-grow-1"></div>
+    <h1 class="mt-0 mb-5 text-center"><%= t "admin.foods.title" %></h1>
+  <div class="flex-grow-1"></div>
+</div>
+<div class="container m-left">
+  <div class="row d-flex align-items-start">
+    <div class="col-md-8">
+    <%= render partial: "topbar" %>
+    </div>
+    <div class="col-md-2 my-5">
+      <%= link_to t("admin.foods.new.title"), new_admin_food_path, class: "btn btn-primary" %>
     </div>
   </div>
+</div>
 <table class="table m-left">
   <thead>
     <tr>
@@ -24,10 +25,12 @@
   </thead>
   <tbody>
     <% if @foods.any? %>
-     <%= render partial: "admin/shared/food", collection: @foods %>
+      <%= render partial: "admin/shared/food", collection: @foods %>
     <% end %>
   </tbody>
 </table>
-<div class="d-flex justify-content-center">
-  <%== pagy_bootstrap_nav(@pagy) %>
-</div>
+<% if @foods.any? %>
+  <div class="d-flex justify-content-center">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+<% end %>

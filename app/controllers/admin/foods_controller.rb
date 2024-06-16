@@ -6,8 +6,10 @@ class Admin::FoodsController < Admin::BaseAdminController
 
   def index
     @pagy, @foods = pagy(Food.order_by_created_at
-                        .search(params[:search_term]), items:
-                        Settings.number.digit_6)
+                        .search(params[:search])
+                        .filter_by_category_ids(params[:category_ids]), items:
+                        Settings.number.digit_8)
+    @categories = Category.all
   end
 
   def new

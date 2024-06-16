@@ -64,3 +64,4 @@ log/development.log
 /node_modules
 /storage
 config/application.yml
+log/test.log

@@ -1,0 +1,51 @@
+<div class="d-flex flex-column bg-light py-3 mx-5">
+  <div class="d-flex justify-content-center align-items-start bg-light py-3">
+    <div class="card-group-item col-md-4 d-flex flex-column bg-light no-hover mx-3">
+      <div class="filter-content">
+        <div class="card-body">
+          <%= form_tag admin_orders_path, method: "get", remote: true, class: "form-inline d-flex align-items-center" do %>
+            <div class="input-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("users.header.search") %>
+              <div class="input-group-append mx-2">
+                <%= submit_tag t("users.header.search"), class: "btn btn-outline-primary bi bi-search" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-group-item col-md-4 d-flex flex-column bg-light no-hover mx-3">
+      <div class="filter-content">
+        <div class="card-body">
+          <%= form_tag admin_orders_path, method: :get, remote: true do %>
+            <h6 class="title"><%= t("foods.topbar.status") %></h6>
+            <% Order.statuses.each do |key, value| %>
+              <div class="form-check">
+                <%= check_box_tag "statuses[]", value, params[:statuses].present? && params[:statuses].include?(value), class: "form-check-input" %>
+                <%= label_tag "status_#{value}", t("foods.statuses.#{key}"), class: "form-check-label" %>
+              </div>
+            <% end %>
+            <%= submit_tag t("sign_up.submit"), class: "btn btn-primary mt-2" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-group-item col-md-4 d-flex flex-column bg-light no-hover mx-3">
+      <div class="filter-content">
+        <div class="card-body">
+          <h6 class="title"><%= t("foods.topbar.date_created") %></h6>
+          <%= search_form_for @q, url: admin_orders_path, remote: true, method: :get, class: "form-inline d-flex align-items-center" do |f| %>
+            <div class="input-group">
+              <%= f.date_field :created_at_eq, class: "form-control" %>
+              <div class="input-group-append mx-2">
+                <%= f.submit t("users.header.search"), class: "btn btn-warning" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="d-flex flex-row bg-light">
+  <article class="card-group-item col-md-4 d-flex flex-column bg-light no-hover">
+    <div class="filter-content">
+      <div class="card-body">
+        <%= form_tag admin_foods_path, method: "get", class: "form-inline d-flex align-items-center" do %>
+          <div class="input-group">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: t("users.header.search") %>
+            <div class="input-group-append mx-2">
+              <%= submit_tag t("users.header.search"), class: "btn btn-outline-primary bi bi-search" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </article>
+  <article class="card-group-item col-md-4 d-flex flex-column bg-light no-hover mx-5">
+    <div class="filter-content">
+      <div class="card-body">
+        <%= form_tag(admin_foods_path, method: :get) do %>
+          <h6 class="title"><%= t("foods.sidebar.category") %></h6>
+          <% @categories.each do |category| %>
+            <div class="form-check">
+              <%= check_box_tag "category_ids[]", category.id, params[:category_ids].present? && params[:category_ids].include?(category.id.to_s), class: "form-check-input" %>
+              <%= label_tag "category_#{category.id}", category.name, class: "form-check-label" %>
+            </div>
+          <% end %>
+          <%= submit_tag t("sign_up.submit"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </article>
+</div>

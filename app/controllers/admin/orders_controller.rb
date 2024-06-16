@@ -2,8 +2,11 @@ class Admin::OrdersController < Admin::BaseAdminController
   layout "admin"
   load_and_authorize_resource
   def index
-    @pagy, @orders = pagy(@orders.order_by_status, items:
-                          Settings.number.digit_8)
+    @q = Order.ransack(params[:q])
+    @pagy, @orders = pagy(@q.result(distinct: true)
+    .search_by_attributes(params[:search])
+    .filter_by_status(params[:statuses])
+    .order_by_status, items: Settings.number.digit_8)
   end
 
   def update_status

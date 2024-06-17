@@ -96,7 +96,10 @@ en:
     phone: "Phone"
     address: "Address"
     update: "Update"
+    change_password: "Change Password"
   foods:
+    avaiable: "Avaiable items:  "
+    no_food: "No food"
     add_to_cart: "Add to cart"
     buy_now: "Buy now"
     sidebar:
@@ -174,6 +177,14 @@ en:
         choose_category: "Choose a category:"
         available: "Available"
         save: "Save"
+    topbar:
+      status: "Status"
+      date_created: "Date Created"
+    statuses:
+      pending: "Pending"
+      delivering: "Delivering"
+      completed: "Completed"
+      canceled: "Canceled"
   flash_messages:
     add_to_cart_success: "Add to cart successfully."
     quantity_not_found: "Quantity is not validate."

@@ -64,7 +64,10 @@ vi:
     phone: "Số điện thoại"
     address: "Địa chỉ"
     update: "Cập nhật"
+    change_password: "Đổi mật khẩu"
   foods:
+    avaiable: "Số lượng còn:  "
+    no_food: "Không có sản phẩm nào"
     add_to_cart: "Thêm vào giỏ"
     buy_now: "Mua ngay"
     sidebar:
@@ -78,6 +81,14 @@ vi:
     details: "Thông tin chi tiết"
     errors:
       food_not_found: "Không tìm thấy sản phẩm!"
+    topbar:
+      status: "Trạng thái"
+      date_created: "Ngày tạo"
+    statuses:
+      pending: "Đang chờ"
+      delivering: "Đang vận chuyển"
+      completed: "Hoàn thành"
+      canceled: "Đã hủy"
   category:
     errors:
       category_not_found: "Không tìm thấy danh mục!"

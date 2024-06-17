@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => "/api-docs"
+  mount Rswag::Api::Engine => "/api-docs"
   scope "(:locale)", locale: /en|vi/ do
     devise_for :users, controllers:
       {registrations: "users/registrations",
@@ -37,6 +39,13 @@ Rails.application.routes.draw do
     resources :users do
       resources :notifications do
         patch "mark_as_read", to:"notifications#mark_as_read"
+      end
+    end
+    namespace :api do
+      namespace :v1 do
+        resources :foods
+        resources :users
+        post "/login", to: "users#login"
       end
     end
     resources :categories

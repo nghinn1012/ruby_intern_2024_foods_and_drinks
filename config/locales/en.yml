@@ -326,3 +326,12 @@ en:
         change_password: "Change Password"
   action:
     not_permit: "Not permit to access"
+  api:
+    unauthorized_action: "You are not authorized to perform this action"
+    login:
+      invalid_credentials: "Invalid username or password"
+    users:
+      invalid: "Invalid username or password."
+    foods:
+      delete: "Food item deleted successfully"
+      not_found: "Food item not found"

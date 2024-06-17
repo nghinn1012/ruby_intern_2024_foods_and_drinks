@@ -44,4 +44,5 @@ number:
   digit_6: 6
   digit_5: 5
   digit_100: 100
+  digit_70: 70
 time_format: "%b %d, %Y %I:%M %p"

@@ -11,7 +11,6 @@
 /test/version_tmp/
 /tmp/
 /log/development.log
-/spec/
 /public/assets
 # Used by dotenv library to load environment variables.
 # .env
@@ -58,7 +57,6 @@ build-iPhoneSimulator/
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
 log/development.log
-/spec
 /public/fonts/*
 \!/public/fonts/.keep
 /node_modules

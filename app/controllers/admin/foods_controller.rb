@@ -65,7 +65,7 @@ class Admin::FoodsController < Admin::BaseAdminController
   end
 
   def food_not_found
-    flash[:danger] = t "admin.foods.flash.food_not_found"
+    flash[:danger] = t "admin.foods.errors.food_not_found"
     redirect_to admin_foods_path
   end
 

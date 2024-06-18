@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_14_161852) do
     t.string "name", null: false
     t.text "description"
     t.decimal "price", precision: 10
-    t.integer "available_item"
+    t.integer "available_item", null: false
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

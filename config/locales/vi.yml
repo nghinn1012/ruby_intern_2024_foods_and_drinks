@@ -293,3 +293,12 @@ vi:
         change_password: "Thay Đổi Mật Khẩu"
   action:
     not_permit: "Không có quyền truy cập"
+  api:
+    unauthorized_action: "Bạn không có quyền thực hiện hành động này"
+    login:
+      invalid_credentials: "Tên đăng nhập hoặc mật khẩu không đúng"
+    users:
+      invalid: "Tên đăng nhập hoặc mật khẩu không đúng."
+    foods:
+      delete: "Xóa món ăn thành công"
+      not_found: "Không tìm thấy món ăn"

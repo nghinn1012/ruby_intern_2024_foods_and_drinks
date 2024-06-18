@@ -1,0 +1,231 @@
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+servers:
+  - url: http://127.0.0.1:3000
+    description: Local server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Food:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        available_item:
+          type: integer
+        category_id:
+          type: integer
+        image:
+          type: string
+          format: binary
+paths:
+  /api/v1/foods:
+    get:
+      tags:
+        - Foods
+      summary: Retrieves all foods
+      parameters:
+        - in: query
+          name: category_ids
+          schema:
+            type: array
+            items:
+              type: integer
+        - in: query
+          name: min_price
+          schema:
+            type: number
+        - in: query
+          name: max_price
+          schema:
+            type: number
+        - in: query
+          name: search
+          schema:
+            type: string
+        - in: query
+          name: sort
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A list of foods
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Food"
+    post:
+      tags:
+        - Foods
+      summary: Creates a food
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                food:
+                  $ref: "#/components/schemas/Food"
+      responses:
+        "201":
+          description: Food created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    $ref: "#/components/schemas/Food"
+        "422":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  errors:
+                    type: array
+                    items:
+                      type: string
+  /api/v1/foods/{id}:
+    get:
+      tags:
+        - Foods
+      summary: Retrieves a food
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A single food
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    $ref: "#/components/schemas/Food"
+        "404":
+          description: Food not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+    put:
+      tags:
+        - Foods
+      summary: Updates a food
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                food:
+                  $ref: "#/components/schemas/Food"
+      responses:
+        "200":
+          description: Food updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  data:
+                    $ref: "#/components/schemas/Food"
+        "422":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  errors:
+                    type: array
+                    items:
+                      type: string
+    delete:
+      tags:
+        - Foods
+      summary: Deletes a food
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Food deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+        "404":
+          description: Food not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
